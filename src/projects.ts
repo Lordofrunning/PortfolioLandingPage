@@ -11,12 +11,12 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 'portfolio',
-    title: "Portfolio Landing Page",
-    description: "Vite + TypeScript starter for my portfolio.",
-    image: "https://via.placeholder.com/800x450?text=Portfolio+Landing+Page",
-    liveUrl: "https://your-live-site.example.com",
-    repoUrl: "https://github.com/tyler/PortfolioLandingPage",
-    tags: ["vite", "typescript"],
+    title: "Elements Display",
+    description: "A Display for Variations on Elements like buttons, graidants, ect",
+    image: "src/Images/ButtonShowCaseImage.png",
+    liveUrl: "https://elementsdisplay.netlify.app/",
+    repoUrl: "https://github.com/Lordofrunning/Elements-Display-Anim.git",
+    tags: ["JavaScript", "HTML", "CSS"],
   },
   {
     id: 'sample-app',
