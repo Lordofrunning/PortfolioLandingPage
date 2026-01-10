@@ -5,8 +5,10 @@ const app = document.querySelector<HTMLDivElement>('#app')
 if (!app) throw new Error('Missing #app element')
 
 app.innerHTML = `
+  <div class="top-banner">
+    <h1>TT's Portfolio</h1>
+  </div>
   <header class="site-header">
-    <h1>Tyler's Portfolio</h1>
     <p>Selected web projects — live links and screenshots.</p>
   </header>
   <section id="projects" class="projects"></section>
