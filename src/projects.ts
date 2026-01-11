@@ -13,7 +13,7 @@ export const projects: Project[] = [
     id: 'portfolio',
     title: "Elements Display",
     description: "A Display for Variations on Elements like buttons, graidants, ect",
-    images: ["src/Images/ButtonShowCaseImage.png","src/Images/AnimatedShowCaseImage.png"],
+    images: ["src/Images/ButtonShowCaseImage.png","src/Images/AnimatedShowCaseImage.png", "src/Images/GradientShowCaseImage.png"],
     liveUrl: "https://elementsdisplay.netlify.app/",
     repoUrl: "https://github.com/Lordofrunning/Elements-Display-Anim.git",
     tags: ["JavaScript", "HTML", "CSS"],
