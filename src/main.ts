@@ -6,6 +6,7 @@ const app = document.querySelector<HTMLDivElement>('#app')
 if (!app) throw new Error('Missing #app element')
 
 app.innerHTML = `
+  <div class="fixed-header"></div>
   <div class="top-banner">
     <h1>TT's Portfolio</h1>
   </div>
@@ -199,3 +200,19 @@ document.querySelectorAll('.media').forEach((media) => {
     openLightbox(project, imageIndex)
   })
 })
+
+// ===== Fixed header on scroll =====
+const fixedHeader = document.querySelector('.fixed-header')!
+const topBanner = document.querySelector('.top-banner')!
+
+function updateFixedHeader() {
+  const bannerBottom = topBanner.getBoundingClientRect().bottom
+  if (bannerBottom <= 0) {
+    fixedHeader.classList.add('visible')
+  } else {
+    fixedHeader.classList.remove('visible')
+  }
+}
+
+window.addEventListener('scroll', updateFixedHeader, { passive: true })
+updateFixedHeader()

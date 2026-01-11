@@ -33,4 +33,17 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/tyler/example",
     tags: ["React", "ExpoGo" ],
   },
+   {
+    id: 'ClothingAppDemo',
+    title: "ClothingApp Demo",
+    description: "A Demo Clothing App for viewing new clothes, keeping a digital wardrobe, and planning outgits.",
+    type: 'mobile',
+    images: [
+      "https://via.placeholder.com/450x800?text=Screenshot+1",
+      "https://via.placeholder.com/450x800?text=Screenshot+2",
+      "https://via.placeholder.com/450x800?text=Screenshot+3"
+    ],
+    repoUrl: "https://github.com/Lordofrunning/clothingapp.git",
+    tags: ["React", "ExpoGo" ],
+  },
 ]
