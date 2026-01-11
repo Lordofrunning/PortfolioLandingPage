@@ -25,12 +25,14 @@ export const projects: Project[] = [
     title: "A Star Wars Themed RPG Helper App",
     description: "A TTRPG StarWars Themed App Helper. Complete with Dice, Enemy Sheets, Rules, MiniGames, and a Galaxy Map. A simple Project Coded by me and my brother.",
     type: 'mobile',
-    images: [
-      "https://via.placeholder.com/450x800?text=Screenshot+1",
-      "https://via.placeholder.com/450x800?text=Screenshot+2",
-      "https://via.placeholder.com/450x800?text=Screenshot+3"
-    ],
-    repoUrl: "https://github.com/tyler/example",
+    images: [ "src/Images/Mobile/SWHomePage.jpg",
+    "src/Images/Mobile/SWThemePicker.jpg",
+    "src/Images/Mobile/SWFullDice.jpg",
+    "src/Images/Mobile/SWGalaxyMap.jpg",
+"src/Images/Mobile/SWInfoMod.jpg",
+"src/Images/Mobile/SWEmptyDice.jpg"],
+
+    repoUrl: "https://github.com/Lordofrunning/starwarsRPGApp2.git",
     tags: ["React", "ExpoGo" ],
   },
    {
