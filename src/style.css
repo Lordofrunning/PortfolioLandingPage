@@ -108,6 +108,8 @@ button:focus-visible {
   overflow: hidden;
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
   transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -120,6 +122,13 @@ button:focus-visible {
   background: #0f0f0f;
 }
 
+/* Mobile app cards - portrait phone aspect ratio */
+.project-card[data-type="mobile"] .media {
+  aspect-ratio: 9 / 16;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
 .project-card img {
   width: 100%;
   height: 100%;
@@ -129,10 +138,17 @@ button:focus-visible {
 
 .project-card .content {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card .content p {
+  flex: 1;
 }
 
 .tags {
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0 0.75rem;
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;

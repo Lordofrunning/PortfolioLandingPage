@@ -28,7 +28,7 @@ const container = document.querySelector<HTMLDivElement>('#projects')!
 container.innerHTML = projects
   .map(
     (p) => `
-      <article class="project-card" data-id="${p.id}">
+      <article class="project-card" data-id="${p.id}" data-type="${p.type}">
         <div class="media" data-project-id="${p.id}">
           ${p.images.map((img, i) => `
             <img 
@@ -55,7 +55,7 @@ container.innerHTML = projects
             ${p.tags.map((t) => `<span class="tag">${t}</span>`).join('')}
           </div>` : ''}
           <div class="links">
-            ${p.liveUrl ? `<a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="button primary">Live</a>` : ''}
+            ${p.type === 'web' && p.liveUrl ? `<a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="button primary">Live</a>` : ''}
             ${p.repoUrl ? `<a href="${p.repoUrl}" target="_blank" rel="noopener noreferrer" class="button">Code</a>` : ''}
           </div>
         </div>
