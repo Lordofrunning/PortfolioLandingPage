@@ -316,6 +316,73 @@ button:focus-visible {
   color: #fff;
 }
 
+/* Info Cards Section */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.info-card {
+  background: #1a1a1a;
+  border: 1px solid #4a4a4a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  border-color: #888;
+  box-shadow: 0 0 20px rgb(136 136 136 / 0.3), 0 8px 24px rgb(0 0 0 / 0.2);
+}
+
+.info-card-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.info-card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4a4a4a;
+  background: #0f0f0f;
+}
+
+.info-card-body {
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.info-card-name {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.info-card-location,
+.info-card-extra {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.info-card-bio {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 768px) {
+  .info-cards {
+    grid-template-columns: 1fr;
+    padding: 0 1rem 1rem;
+  }
+}
+
 /* Profile Modal */
 .profile-modal {
   position: fixed;
