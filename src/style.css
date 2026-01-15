@@ -99,10 +99,12 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3.75rem;
+  position: relative;
+  z-index: 10;
 }
 
 .project-card {
-  background: #1a1a1a;
+  background: rgba(26, 26, 26, 0.8);
   border: 1px solid #4a4a4a;
   border-radius: 12px;
   overflow: hidden;
@@ -110,6 +112,8 @@ button:focus-visible {
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 10;
 }
 
 .project-card:hover {
@@ -142,6 +146,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: transparent;
 }
 
 .project-card .content p {
@@ -172,28 +177,34 @@ button:focus-visible {
 /* Language-specific tag colors on hover */
 .tag[data-lang="javascript"]:hover,
 .tag[data-lang="js"]:hover {
-  background: #f7df1e;
+  background: #F7DF1E;
   color: #000;
 }
 
 .tag[data-lang="css"]:hover {
-  background: #38bdf8;
-  color: #000;
+  background: #663399;
+  color: #fff;
 }
 
 .tag[data-lang="html"]:hover {
-  background: #e34c26;
+  background: #E34F26;
   color: #fff;
 }
 
 .tag[data-lang="react"]:hover {
-  background: #1e3a8a;
+  background: #61DAFB;
+  color: #000;
+}
+
+.tag[data-lang="python"]:hover {
+  background: #3776AB;
   color: #fff;
 }
 
 .tag[data-lang="expogo"]:hover,
-.tag[data-lang="expo go"]:hover {
-  background: #000;
+.tag[data-lang="expo go"]:hover,
+.tag[data-lang="expo"]:hover {
+  background: #1C2024;
   color: #fff;
 }
 
@@ -324,10 +335,12 @@ button:focus-visible {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
+  position: relative;
+  z-index: 10;
 }
 
 .info-card {
-  background: #1a1a1a;
+  background: rgba(26, 26, 26, 0.8);
   border: 1px solid #4a4a4a;
   border-radius: 12px;
   overflow: hidden;
@@ -374,6 +387,130 @@ button:focus-visible {
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
+}
+
+/* Skill Icons */
+.skill-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.skill-icons img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: #2a2a2a;
+  object-fit: contain;
+  padding: 4px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-icons img:hover {
+  transform: translateY(-3px);
+}
+
+/* Skill icon hover colors */
+.skill-icons img[data-lang="javascript"]:hover {
+  background: #F7DF1E;
+  box-shadow: 0 0 12px rgba(247, 223, 30, 0.5);
+}
+
+.skill-icons img[data-lang="html"]:hover {
+  background: #E34F26;
+  box-shadow: 0 0 12px rgba(227, 79, 38, 0.5);
+}
+
+.skill-icons img[data-lang="css"]:hover {
+  background: #663399;
+  box-shadow: 0 0 12px rgba(102, 51, 153, 0.5);
+}
+
+.skill-icons img[data-lang="react"]:hover {
+  background: #61DAFB;
+  box-shadow: 0 0 12px rgba(97, 218, 251, 0.5);
+}
+
+.skill-icons img[data-lang="python"]:hover {
+  background: #3776AB;
+  box-shadow: 0 0 12px rgba(55, 118, 171, 0.5);
+}
+
+.skill-icons img[data-lang="expo"]:hover {
+  background: #1C2024;
+  box-shadow: 0 0 12px rgba(28, 32, 36, 0.5);
+}
+
+/* Controller Panel */
+.controller-panel .info-card-body h3 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-label {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #3a3a3a;
+  border-radius: 26px;
+  transition: background 0.3s ease;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: #f97316;
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(24px);
+}
+
+.toggle-switch input:focus + .toggle-slider {
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3);
+}
+
+.controls-extra {
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,10 @@
 import './style.css'
 import { projects } from './projects'
 import type { Project } from './projects'
+import { initFireTrail, setFireTrailEnabled } from './fireTrail'
+
+// Initialize fire trail effect
+initFireTrail()
 
 const app = document.querySelector<HTMLDivElement>('#app')
 if (!app) throw new Error('Missing #app element')
@@ -35,7 +39,7 @@ app.innerHTML = `
     <h1>TT's Portfolio</h1>
   </div>
   <header class="site-header">
-    <p>Selected web projects — live links and screenshots.</p>
+    <!-- header under top banner if needed -->
   </header>
   
   <!-- Info Cards -->
@@ -45,16 +49,32 @@ app.innerHTML = `
         <img src="" alt="Profile" class="info-card-avatar" />
       </div>
       <div class="info-card-body">
-        <h3 class="info-card-name">Your Full Name</h3>
-        <p class="info-card-location">📍 Your Location</p>
+        <h3 class="info-card-name">TT</h3>
+        <p class="info-card-location">🌍📍Utah USA🦅</p>
         <p class="info-card-extra">💼 Your Role / Title</p>
-        <p class="info-card-bio">Add a short bio or description about yourself here. Talk about your skills, interests, and what you're passionate about in development.</p>
+        <div class="skill-icons">
+          <img src="/icons/javascript.svg" alt="JavaScript" title="JavaScript" data-lang="javascript" />
+          <img src="/icons/html5.svg" alt="HTML" title="HTML" data-lang="html" />
+          <img src="/icons/css.svg" alt="CSS" title="CSS" data-lang="css" />
+          <img src="/icons/react.svg" alt="React" title="React" data-lang="react" />
+          <img src="/icons/python.svg" alt="Python" title="Python" data-lang="python" />
+          <img src="/icons/expo.svg" alt="Expo" title="Expo" data-lang="expo" />
+        </div>
       </div>
     </article>
-    <article class="info-card">
+    <article class="info-card controller-panel">
       <div class="info-card-body">
-        <h3>Coming Soon</h3>
-        <p class="info-card-bio">This card can be used for additional information, links, or anything else you'd like to showcase.</p>
+        <h3>Try Some Fun Effects?</h3>
+        <div class="control-row">
+          <span class="control-label">Effects</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="effects-toggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="controls-extra">
+          <!-- Additional controls will go here -->
+        </div>
       </div>
     </article>
   </section>
@@ -288,4 +308,10 @@ profileModal.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !profileModal.hidden) closeProfileModal()
+})
+
+// ===== Effects Toggle =====
+const effectsToggle = document.getElementById('effects-toggle') as HTMLInputElement
+effectsToggle.addEventListener('change', () => {
+  setFireTrailEnabled(effectsToggle.checked)
 })
