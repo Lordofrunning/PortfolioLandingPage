@@ -59,6 +59,7 @@ app.innerHTML = `
           <img src="/icons/react.svg" alt="React" title="React" data-lang="react" />
           <img src="/icons/python.svg" alt="Python" title="Python" data-lang="python" />
           <img src="/icons/expo.svg" alt="Expo" title="Expo" data-lang="expo" />
+          <img src="/icons/mysql.svg" alt="SQL" title="SQL" data-lang="sql" />
         </div>
       </div>
     </article>

@@ -360,6 +360,10 @@ button:focus-visible {
 }
 
 /* Profile Card Layout */
+.profile-card {
+  border-radius: 12px 48px 12px 12px; /* top-left, top-right, bottom-right, bottom-left */
+}
+
 .profile-card .info-card-body {
   position: relative;
   padding-top: 1.5rem;
@@ -372,7 +376,7 @@ button:focus-visible {
 }
 
 .profile-card .info-card-content {
-  padding-right: 100px; /* Make room for avatar */
+  padding-right: 120px; /* Make room for avatar */
 }
 
 .info-card-avatar {
@@ -422,7 +426,7 @@ button:focus-visible {
 .skill-icons img {
   width: 40px;
   height: 40px;
-  border-radius: 6px;
+  border-radius: 0 50% 0 50%; /* top-left, top-right, bottom-right, bottom-left */
   background: #2a2a2a;
   object-fit: contain;
   padding: 4px;
@@ -460,8 +464,13 @@ button:focus-visible {
 }
 
 .skill-icons img[data-lang="expo"]:hover {
-  background: #1C2024;
-  box-shadow: 0 0 12px rgba(28, 32, 36, 0.5);
+  background: #e5e7eb;
+  box-shadow: 0 0 12px rgba(229, 231, 235, 0.6);
+}
+
+.skill-icons img[data-lang="sql"]:hover {
+  background: #4479A1;
+  box-shadow: 0 0 12px rgba(68, 121, 161, 0.5);
 }
 
 /* Controller Panel */
