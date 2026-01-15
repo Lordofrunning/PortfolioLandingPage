@@ -11,10 +11,14 @@ interface Particle {
   life: number
   maxLife: number
   size: number
-  hue: number
+  r: number
+  g: number
+  b: number
 }
 
 let fireTrailEnabled = false
+let fireTrailColor = { r: 255, g: 102, b: 0 } // Default orange
+let fireTrailSize = 1 // Size multiplier (0.5 to 2)
 
 export function setFireTrailEnabled(enabled: boolean) {
   fireTrailEnabled = enabled
@@ -22,6 +26,18 @@ export function setFireTrailEnabled(enabled: boolean) {
   if (canvas) {
     canvas.style.opacity = enabled ? '1' : '0'
   }
+}
+
+export function setFireTrailColor(hex: string) {
+  fireTrailColor = {
+    r: parseInt(hex.slice(1, 3), 16),
+    g: parseInt(hex.slice(3, 5), 16),
+    b: parseInt(hex.slice(5, 7), 16)
+  }
+}
+
+export function setFireTrailSize(size: number) {
+  fireTrailSize = size
 }
 
 export function isFireTrailEnabled() {
@@ -76,16 +92,19 @@ export function initFireTrail() {
   function createParticle() {
     const angle = Math.random() * Math.PI - Math.PI / 2 // Spread downward (90-270 degrees)
     const speed = Math.random() * 1.5 + 0.5
+    const baseSize = (Math.random() * 4 + 3) * fireTrailSize // Apply size multiplier
     
     particles.push({
-      x: mouseX + (Math.random() - 0.5) * 6, // Slight horizontal spread
+      x: mouseX + (Math.random() - 0.5) * 6 * fireTrailSize, // Slight horizontal spread
       y: mouseY + 8, // Start below cursor
       vx: Math.cos(angle) * speed * 0.3,
       vy: Math.abs(Math.sin(angle)) * speed + 0.5, // Fall downward
       life: 1,
       maxLife: 1,
-      size: Math.random() * 4 + 3, // Particles (3-7px)
-      hue: Math.random() * 40 + 10, // Orange to yellow range
+      size: baseSize,
+      r: fireTrailColor.r,
+      g: fireTrailColor.g,
+      b: fireTrailColor.b,
     })
   }
 
@@ -120,11 +139,11 @@ export function initFireTrail() {
       const alpha = p.life * 0.8
       const size = p.size * p.life
       
-      // Gradient from center
+      // Gradient from center using RGB
       const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, size)
-      gradient.addColorStop(0, `hsla(${p.hue}, 100%, 60%, ${alpha})`)
-      gradient.addColorStop(0.4, `hsla(${p.hue - 10}, 100%, 50%, ${alpha * 0.6})`)
-      gradient.addColorStop(1, `hsla(${p.hue - 20}, 100%, 30%, 0)`)
+      gradient.addColorStop(0, `rgba(${p.r}, ${p.g}, ${p.b}, ${alpha})`)
+      gradient.addColorStop(0.4, `rgba(${Math.floor(p.r * 0.8)}, ${Math.floor(p.g * 0.7)}, ${Math.floor(p.b * 0.6)}, ${alpha * 0.6})`)
+      gradient.addColorStop(1, `rgba(${Math.floor(p.r * 0.5)}, ${Math.floor(p.g * 0.4)}, ${Math.floor(p.b * 0.3)}, 0)`)
       
       ctx.beginPath()
       ctx.arc(p.x, p.y, size, 0, Math.PI * 2)

@@ -1,7 +1,7 @@
 import './style.css'
 import { projects } from './projects'
 import type { Project } from './projects'
-import { initFireTrail, setFireTrailEnabled } from './fireTrail'
+import { initFireTrail, setFireTrailEnabled, setFireTrailColor, setFireTrailSize } from './fireTrail'
 
 // Initialize fire trail effect
 initFireTrail()
@@ -44,14 +44,14 @@ app.innerHTML = `
   
   <!-- Info Cards -->
   <section class="info-cards">
-    <article class="info-card">
-      <div class="info-card-header">
-        <img src="" alt="Profile" class="info-card-avatar" />
-      </div>
+    <article class="info-card profile-card">
       <div class="info-card-body">
-        <h3 class="info-card-name">TT</h3>
-        <p class="info-card-location">🌍📍Utah USA🦅</p>
-        <p class="info-card-extra">💼 Your Role / Title</p>
+        <img src="/PictureOfMeCropped.JPG" alt="Profile" class="info-card-avatar" />
+        <div class="info-card-content">
+          <h3 class="info-card-name">TT</h3>
+          <p class="info-card-location">🌍📍Utah USA🦅</p>
+          <p class="info-card-extra">💼 Your Role / Title</p>
+        </div>
         <div class="skill-icons">
           <img src="/icons/javascript.svg" alt="JavaScript" title="JavaScript" data-lang="javascript" />
           <img src="/icons/html5.svg" alt="HTML" title="HTML" data-lang="html" />
@@ -72,8 +72,27 @@ app.innerHTML = `
             <span class="toggle-slider"></span>
           </label>
         </div>
-        <div class="controls-extra">
-          <!-- Additional controls will go here -->
+        <div class="controls-split" id="effects-controls" hidden>
+          <div class="controls-left">
+            <div class="control-item">
+              <span class="control-label-small">Fire Trail</span>
+              <label class="toggle-switch toggle-small">
+                <input type="checkbox" id="fire-toggle" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="control-item">
+              <span class="control-label-small">Color</span>
+              <input type="color" id="fire-color" value="#ff6600" class="color-picker" />
+            </div>
+            <div class="control-item">
+              <span class="control-label-small">Size</span>
+              <input type="range" id="fire-size" min="0.5" max="2" step="0.1" value="1" class="size-slider" />
+            </div>
+          </div>
+          <div class="controls-right">
+            <!-- Future controls -->
+          </div>
         </div>
       </div>
     </article>
@@ -312,6 +331,49 @@ document.addEventListener('keydown', (e) => {
 
 // ===== Effects Toggle =====
 const effectsToggle = document.getElementById('effects-toggle') as HTMLInputElement
+const fireToggle = document.getElementById('fire-toggle') as HTMLInputElement
+const fireColorPicker = document.getElementById('fire-color') as HTMLInputElement
+const fireSizeSlider = document.getElementById('fire-size') as HTMLInputElement
+const effectsControls = document.getElementById('effects-controls') as HTMLDivElement
+
+// Main effects toggle controls all effects
 effectsToggle.addEventListener('change', () => {
-  setFireTrailEnabled(effectsToggle.checked)
+  const enabled = effectsToggle.checked
+  // Show/hide the controls panel
+  effectsControls.hidden = !enabled
+  // Flick all sub-toggles to match main toggle
+  fireToggle.checked = enabled
+  setFireTrailEnabled(enabled)
 })
+
+// Fire trail specific toggle
+fireToggle.addEventListener('change', () => {
+  setFireTrailEnabled(fireToggle.checked)
+  // If turning off fire trail while main is on, keep main on
+  // If turning on fire trail, make sure main is on too
+  if (fireToggle.checked && !effectsToggle.checked) {
+    effectsToggle.checked = true
+  }
+})
+
+// Fire trail color picker
+fireColorPicker.addEventListener('input', () => {
+  setFireTrailColor(fireColorPicker.value)
+})
+
+// Fire trail size slider
+function updateSliderTrack() {
+  const min = parseFloat(fireSizeSlider.min)
+  const max = parseFloat(fireSizeSlider.max)
+  const val = parseFloat(fireSizeSlider.value)
+  const progress = ((val - min) / (max - min)) * 100
+  fireSizeSlider.style.setProperty('--slider-progress', `${progress}%`)
+}
+
+fireSizeSlider.addEventListener('input', () => {
+  setFireTrailSize(parseFloat(fireSizeSlider.value))
+  updateSliderTrack()
+})
+
+// Initialize slider track
+updateSliderTrack()
