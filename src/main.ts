@@ -37,13 +37,29 @@ app.innerHTML = `
   <header class="site-header">
     <p>Selected web projects — live links and screenshots.</p>
   </header>
-  <div class="projects-wrapper">
-    <div class="projects-carousel-track">
-      <section id="projects" class="projects"></section>
-      <section id="projects-clone" class="projects projects-clone"></section>
-    </div>
-    <button id="expand-projects" class="expand-btn">Expand Projects</button>
-  </div>
+  
+  <!-- Info Cards -->
+  <section class="info-cards">
+    <article class="info-card">
+      <div class="info-card-header">
+        <img src="" alt="Profile" class="info-card-avatar" />
+      </div>
+      <div class="info-card-body">
+        <h3 class="info-card-name">Your Full Name</h3>
+        <p class="info-card-location">📍 Your Location</p>
+        <p class="info-card-extra">💼 Your Role / Title</p>
+        <p class="info-card-bio">Add a short bio or description about yourself here. Talk about your skills, interests, and what you're passionate about in development.</p>
+      </div>
+    </article>
+    <article class="info-card">
+      <div class="info-card-body">
+        <h3>Coming Soon</h3>
+        <p class="info-card-bio">This card can be used for additional information, links, or anything else you'd like to showcase.</p>
+      </div>
+    </article>
+  </section>
+  
+  <section id="projects" class="projects"></section>
   
   <!-- Lightbox overlay -->
   <div id="lightbox" class="lightbox" hidden>
@@ -56,7 +72,7 @@ app.innerHTML = `
 `
 
 const container = document.querySelector<HTMLDivElement>('#projects')!
-const projectsHTML = projects
+container.innerHTML = projects
   .map(
     (p) => `
       <article class="project-card" data-id="${p.id}" data-type="${p.type}">
@@ -83,7 +99,7 @@ const projectsHTML = projects
           <p>${p.description}</p>
           ${p.tags?.length ? `
           <div class="tags">
-            ${p.tags.map((t) => `<span class="tag">${t}</span>`).join('')}
+            ${p.tags.map((t) => `<span class="tag" data-lang="${t.toLowerCase().replace(/\s+/g, '')}">${t}</span>`).join('')}
           </div>` : ''}
           <div class="links">
             ${p.type === 'web' && p.liveUrl ? `<a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="button primary">Live</a>` : ''}
@@ -94,21 +110,6 @@ const projectsHTML = projects
     `,
   )
   .join('')
-
-container.innerHTML = projectsHTML
-
-// Clone for infinite scroll
-const cloneContainer = document.querySelector<HTMLDivElement>('#projects-clone')!
-cloneContainer.innerHTML = projectsHTML
-
-// ===== Expand/Collapse Projects =====
-const projectsWrapper = document.querySelector('.projects-wrapper')!
-const expandBtn = document.getElementById('expand-projects')!
-
-expandBtn.addEventListener('click', () => {
-  const isExpanded = projectsWrapper.classList.toggle('expanded')
-  expandBtn.textContent = isExpanded ? 'Collapse Projects' : 'Expand Projects'
-})
 
 // ===== Carousel auto-rotation =====
 const carouselIntervals = new Map<string, number>()
@@ -267,26 +268,24 @@ const profileBtn = document.getElementById('profile-btn')!
 const profileModal = document.getElementById('profile-modal')!
 const profileModalClose = profileModal.querySelector('.profile-modal-close')!
 
-profileBtn.addEventListener('click', () => {
+function openProfileModal() {
   profileModal.hidden = false
   document.body.style.overflow = 'hidden'
-})
+}
 
-profileModalClose.addEventListener('click', () => {
+function closeProfileModal() {
   profileModal.hidden = true
   document.body.style.overflow = ''
-})
+}
+
+profileBtn.addEventListener('click', openProfileModal)
+
+profileModalClose.addEventListener('click', closeProfileModal)
 
 profileModal.addEventListener('click', (e) => {
-  if (e.target === profileModal) {
-    profileModal.hidden = true
-    document.body.style.overflow = ''
-  }
+  if (e.target === profileModal) closeProfileModal()
 })
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !profileModal.hidden) {
-    profileModal.hidden = true
-    document.body.style.overflow = ''
-  }
+  if (e.key === 'Escape' && !profileModal.hidden) closeProfileModal()
 })
