@@ -53,47 +53,62 @@ app.innerHTML = `
           <p class="info-card-extra">💼 Your Role / Title</p>
         </div>
         <div class="skill-icons">
-          <img src="/icons/javascript.svg" alt="JavaScript" title="JavaScript" data-lang="javascript" />
-          <img src="/icons/html5.svg" alt="HTML" title="HTML" data-lang="html" />
-          <img src="/icons/css.svg" alt="CSS" title="CSS" data-lang="css" />
-          <img src="/icons/react.svg" alt="React" title="React" data-lang="react" />
-          <img src="/icons/python.svg" alt="Python" title="Python" data-lang="python" />
-          <img src="/icons/expo.svg" alt="Expo" title="Expo" data-lang="expo" />
-          <img src="/icons/mysql.svg" alt="SQL" title="SQL" data-lang="sql" />
+          <div class="skill-item">
+            <img src="/icons/javascript.svg" alt="JavaScript" data-lang="javascript" />
+            <span>JS</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/html5.svg" alt="HTML" data-lang="html" />
+            <span>HTML</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/css.svg" alt="CSS" data-lang="css" />
+            <span>CSS</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/react.svg" alt="React" data-lang="react" />
+            <span>React</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/python.svg" alt="Python" data-lang="python" />
+            <span>Python</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/expo.svg" alt="Expo" data-lang="expo" />
+            <span>Expo</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/mysql.svg" alt="SQL" data-lang="sql" />
+            <span>SQL</span>
+          </div>
         </div>
       </div>
     </article>
     <article class="info-card controller-panel">
       <div class="info-card-body">
-        <h3>Try Some Fun Effects?</h3>
-        <div class="control-row">
-          <span class="control-label">Effects</span>
+        <div class="effects-header">
+          <h3>Try Some Cool Effects?</h3>
           <label class="toggle-switch">
             <input type="checkbox" id="effects-toggle" />
             <span class="toggle-slider"></span>
           </label>
         </div>
-        <div class="controls-split" id="effects-controls" hidden>
-          <div class="controls-left">
-            <div class="control-item">
-              <span class="control-label-small">Fire Trail</span>
-              <label class="toggle-switch toggle-small">
-                <input type="checkbox" id="fire-toggle" />
-                <span class="toggle-slider"></span>
-              </label>
-            </div>
-            <div class="control-item">
-              <span class="control-label-small">Color</span>
-              <input type="color" id="fire-color" value="#ff6600" class="color-picker" />
-            </div>
-            <div class="control-item">
-              <span class="control-label-small">Size</span>
-              <input type="range" id="fire-size" min="0.5" max="2" step="0.1" value="1" class="size-slider" />
-            </div>
-          </div>
-          <div class="controls-right">
-            <!-- Future controls -->
-          </div>
+      </div>
+      <div class="effects-expand" id="effects-controls" hidden>
+        <div class="control-item">
+          <span class="control-label-small">Fire Trail</span>
+          <label class="toggle-switch toggle-small">
+            <input type="checkbox" id="fire-toggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="control-item">
+          <span class="control-label-small">Color</span>
+          <input type="color" id="fire-color" value="#ff6600" class="color-picker" />
+        </div>
+        <div class="control-item">
+          <span class="control-label-small">Size</span>
+          <input type="range" id="fire-size" min="0.5" max="2" step="0.1" value="1" class="size-slider" />
         </div>
       </div>
     </article>
@@ -336,12 +351,17 @@ const fireToggle = document.getElementById('fire-toggle') as HTMLInputElement
 const fireColorPicker = document.getElementById('fire-color') as HTMLInputElement
 const fireSizeSlider = document.getElementById('fire-size') as HTMLInputElement
 const effectsControls = document.getElementById('effects-controls') as HTMLDivElement
+const controllerPanel = document.querySelector('.controller-panel') as HTMLElement
+
+// Start collapsed
+controllerPanel.classList.add('collapsed')
 
 // Main effects toggle controls all effects
 effectsToggle.addEventListener('change', () => {
   const enabled = effectsToggle.checked
-  // Show/hide the controls panel
+  // Show/hide the controls panel and expand/collapse the panel
   effectsControls.hidden = !enabled
+  controllerPanel.classList.toggle('collapsed', !enabled)
   // Flick all sub-toggles to match main toggle
   fireToggle.checked = enabled
   setFireTrailEnabled(enabled)
