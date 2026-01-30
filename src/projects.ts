@@ -46,6 +46,6 @@ export const projects: Project[] = [
       "https://via.placeholder.com/450x800?text=Screenshot+3"
     ],
     repoUrl: "https://github.com/Lordofrunning/clothingapp.git",
-    tags: ["React", "ExpoGo" ],
+    tags: ["React", "ExpoGo", "Python" ],
   },
 ]

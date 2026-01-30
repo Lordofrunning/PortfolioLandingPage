@@ -327,10 +327,22 @@ button:focus-visible {
   color: #fff;
 }
 
+.nav-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-btn {
+  padding: 0;
+  overflow: hidden;
+}
+
 /* Info Cards Section */
 .info-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: flex-start;
   gap: 2rem;
   max-width: 1280px;
   margin: 0 auto;
@@ -361,30 +373,49 @@ button:focus-visible {
 
 /* Profile Card Layout */
 .profile-card {
-  border-radius: 12px 48px 12px 12px; /* top-left, top-right, bottom-right, bottom-left */
+  border-radius: 16px 64px 16px 16px; /* top-left, top-right, bottom-right, bottom-left */
+  min-width: 800px;
+  max-width: 900px;
 }
 
 .profile-card .info-card-body {
   position: relative;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+
+.avatar-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.avatar-btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .profile-card .info-card-avatar {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  display: block;
 }
 
 .profile-card .info-card-content {
-  padding-right: 120px; /* Make room for avatar */
+  padding-right: 160px; /* Make room for avatar */
 }
 
 .info-card-avatar {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #4a4a4a;
+  border: 4px solid #4a4a4a;
   background: #0f0f0f;
 }
 
@@ -396,14 +427,14 @@ button:focus-visible {
 }
 
 .info-card-name {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
+  margin: 0 0 0.75rem;
+  font-size: 2rem;
 }
 
 .info-card-location,
 .info-card-extra {
-  margin: 0 0 0.25rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -417,31 +448,31 @@ button:focus-visible {
 /* Skill Icons */
 .skill-icons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 
 .skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.4rem;
 }
 
 .skill-item span {
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .skill-icons img {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: 0 50% 0 50%; /* top-left, top-right, bottom-right, bottom-left */
   background: #2a2a2a;
   object-fit: contain;
-  padding: 4px;
+  padding: 6px;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
