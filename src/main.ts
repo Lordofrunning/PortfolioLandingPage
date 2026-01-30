@@ -116,7 +116,18 @@ app.innerHTML = `
     </article> -->
   </section>
   
-  <section id="projects" class="projects"></section>
+  <!-- Projects Dropdown Section -->
+  <div class="projects-dropdown-container">
+    <button class="projects-dropdown-toggle" id="projects-toggle">
+      <span class="projects-title">Projects</span>
+      <svg class="dropdown-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+    <div class="projects-dropdown-content" id="projects-content">
+      <section id="projects" class="projects"></section>
+    </div>
+  </div>
   
   <!-- Lightbox overlay -->
   <div id="lightbox" class="lightbox" hidden>
@@ -402,3 +413,13 @@ document.addEventListener('keydown', (e) => {
 
 // // Initialize slider track
 // updateSliderTrack()
+
+// ===== Projects Dropdown Toggle =====
+const projectsToggle = document.getElementById('projects-toggle') as HTMLButtonElement
+const projectsContent = document.getElementById('projects-content') as HTMLDivElement
+
+projectsToggle.addEventListener('click', () => {
+  const isExpanded = projectsContent.classList.toggle('expanded')
+  projectsToggle.classList.toggle('expanded', isExpanded)
+  projectsToggle.setAttribute('aria-expanded', isExpanded.toString())
+})

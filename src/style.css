@@ -95,6 +95,86 @@ button:focus-visible {
   text-align: center;
 }
 
+/* Projects Dropdown */
+.projects-dropdown-container {
+  margin: 2rem auto;
+  max-width: 1400px;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.projects-dropdown-container::after {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  top: calc(1rem + 2.5rem + 1rem);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.87);
+}
+
+.projects-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  padding: 1rem 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.projects-dropdown-toggle:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+.projects-dropdown-toggle:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+.projects-dropdown-toggle:hover .projects-title {
+  color: #60a5fa;
+}
+
+.projects-dropdown-toggle:hover .dropdown-arrow {
+  stroke: #dbeafe;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.87);
+  transition: color 0.3s ease;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: 0.5rem;
+}
+
+.projects-dropdown-toggle.expanded .dropdown-arrow {
+  transform: rotate(90deg);
+}
+
+.projects-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.projects-dropdown-content.expanded {
+  max-height: 10000px;
+  margin-top: 2rem;
+}
+
 .projects {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -373,7 +453,7 @@ button:focus-visible {
 
 /* Profile Card Layout */
 .profile-card {
-  border-radius: 16px 64px 16px 16px; /* top-left, top-right, bottom-right, bottom-left */
+  min-width: min(800px, 100%);
   min-width: 800px;
   max-width: 900px;
 }
@@ -887,6 +967,19 @@ button:focus-visible {
   .fixed-header.visible {
     height: 0.75rem;
     padding: 0.75rem 0;
+  }
+  
+  .projects-dropdown-container {
+    padding: 0 1rem;
+  }
+  
+  .projects-title {
+    font-size: 1.8rem;
+  }
+  
+  .dropdown-arrow {
+    width: 28px;
+    height: 28px;
   }
 }
 

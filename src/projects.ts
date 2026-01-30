@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     id: 'portfolio',
     title: "Elements Display",
-    description: "A Display for Variations on Elements like buttons, graidants, ect",
+    description: "A Display for Variations on Elements like buttons, gradients, etc",
     type: 'web',
     images: ["src/Images/ButtonShowCaseImage.png","src/Images/AnimatedShowCaseImage.png","src/Images/GradiantShowCaseImage.png"],
     liveUrl: "https://elementsdisplay.netlify.app/",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
    {
     id: 'ClothingAppDemo',
     title: "ClothingApp Demo",
-    description: "A Demo Clothing App for viewing new clothes, keeping a digital wardrobe, and planning outgits.",
+    description: "A Demo Clothing App for viewing new clothes, keeping a digital wardrobe, and planning outfits.",
     type: 'mobile',
     images: [
       "https://via.placeholder.com/450x800?text=Screenshot+1",
