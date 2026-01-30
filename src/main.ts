@@ -56,6 +56,10 @@ app.innerHTML = `
         </div>
         <div class="skill-icons">
           <div class="skill-item">
+            <img src="/icons/react.svg" alt="React" data-lang="react" />
+            <span>React</span>
+          </div>
+          <div class="skill-item">
             <img src="/icons/javascript.svg" alt="JavaScript" data-lang="javascript" />
             <span>JS</span>
           </div>
@@ -68,10 +72,6 @@ app.innerHTML = `
             <span>CSS</span>
           </div>
           <div class="skill-item">
-            <img src="/icons/react.svg" alt="React" data-lang="react" />
-            <span>React</span>
-          </div>
-          <div class="skill-item">
             <img src="/icons/python.svg" alt="Python" data-lang="python" />
             <span>Python</span>
           </div>
@@ -82,6 +82,14 @@ app.innerHTML = `
           <div class="skill-item">
             <img src="/icons/mysql.svg" alt="SQL" data-lang="sql" />
             <span>SQL</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/csharpGrey.svg" alt="C#" data-lang="csharp" />
+            <span>C#</span>
+          </div>
+          <div class="skill-item">
+            <img src="/icons/cplusplus.svg" alt="C++" data-lang="cpp" />
+            <span>C++</span>
           </div>
         </div>
       </div>
