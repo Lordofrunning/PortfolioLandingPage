@@ -111,6 +111,41 @@ button:focus-visible {
   top: calc(1rem + 2.5rem + 1rem);
   height: 2px;
   background: rgba(255, 255, 255, 0.87);
+  transition: top 0.5s ease;
+}
+
+.projects-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.projects-dropdown-content::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.87);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.projects-dropdown-content.expanded {
+  max-height: 10000px;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.projects-dropdown-content.expanded::after {
+  opacity: 1;
+}
+
+.projects-dropdown-container:has(.projects-dropdown-content:not(.expanded))::after {
+  top: calc(1rem + 2.5rem + 1rem + 1rem);
 }
 
 .projects-dropdown-toggle {
@@ -131,7 +166,8 @@ button:focus-visible {
 }
 
 .projects-dropdown-toggle:focus-visible {
-  outline: none;
+  outline: 3px solid #60a5fa;
+  outline-offset: 4px;
 }
 
 .projects-dropdown-toggle:hover .projects-title {
@@ -160,17 +196,6 @@ button:focus-visible {
 
 .projects-dropdown-toggle.expanded .dropdown-arrow {
   transform: rotate(90deg);
-}
-
-.projects-dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.projects-dropdown-content.expanded {
-  max-height: 10000px;
-  margin-top: 2rem;
 }
 
 .projects {
@@ -436,7 +461,8 @@ button:focus-visible {
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  display: flex;\n  flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-card:hover {
@@ -455,15 +481,28 @@ button:focus-visible {
   width: 100%;
 }
 
+.profile-card:hover {
+  transform: none;
+  border-color: #4a4a4a;
+  box-shadow: none;
+}
+
 .profile-card .info-card-body {
   position: relative;
   padding: 3rem 4rem;
 }
 
-.avatar-btn {
+.avatar-container {
   position: absolute;
   top: 1.5rem;
   right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar-btn {
   background: none;
   border: none;
   padding: 0;
@@ -474,6 +513,29 @@ button:focus-visible {
 .avatar-btn:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
+}
+
+.avatar-github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.avatar-github-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.avatar-github-link svg {
+  width: 72px;
+  height: 72px;
 }
 
 .profile-card .info-card-avatar {
