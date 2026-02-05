@@ -26,12 +26,23 @@ app.innerHTML = `
   </div>
   
   <!-- Profile Modal -->
-  <div id="profile-modal" class="profile-modal" hidden>
+  <div id="profile-modal" class="modal-overlay" hidden>
     <div class="profile-modal-content">
-      <button class="profile-modal-close" aria-label="Close">&times;</button>
+      <button class="modal-close" aria-label="Close">&times;</button>
       <img src="/PictureOfMeCropped.JPG" alt="Profile Picture" class="profile-pic" />
       <h2>About Me</h2>
       <p>Add your bio here...</p>
+    </div>
+  </div>
+  
+  <!-- Language Icon Modal -->
+  <div id="lang-modal" class="modal-overlay" hidden>
+    <div class="lang-modal-content">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div class="lang-icon-display">
+        <img id="lang-modal-icon" src="" alt="" />
+      </div>
+      <h2 id="lang-modal-title"></h2>
     </div>
   </div>
   
@@ -167,6 +178,7 @@ app.innerHTML = `
   </div>
 `
 
+// code to display the projects. 
 const container = document.querySelector<HTMLDivElement>('#projects')!
 container.innerHTML = projects
   .map(
@@ -363,7 +375,7 @@ updateFixedHeader()
 const profileBtn = document.getElementById('profile-btn')!
 const avatarBtn = document.getElementById('avatar-btn')!
 const profileModal = document.getElementById('profile-modal')!
-const profileModalClose = profileModal.querySelector('.profile-modal-close')!
+const profileModalClose = profileModal.querySelector('.modal-close')!
 
 function openProfileModal() {
   profileModal.hidden = false
@@ -460,4 +472,57 @@ educationToggle.addEventListener('click', () => {
   const isExpanded = educationContent.classList.toggle('expanded')
   educationToggle.classList.toggle('expanded', isExpanded)
   educationToggle.setAttribute('aria-expanded', isExpanded.toString())
+})
+
+// ===== Language Icon Modal =====
+const langModal = document.getElementById('lang-modal')!
+const langModalClose = langModal.querySelector('.modal-close')!
+const langModalIcon = document.getElementById('lang-modal-icon') as HTMLImageElement
+const langModalTitle = document.getElementById('lang-modal-title')!
+
+const languageNames: Record<string, string> = {
+  'react': 'React',
+  'javascript': 'JavaScript',
+  'html': 'HTML5',
+  'css': 'CSS3',
+  'python': 'Python',
+  'expo': 'Expo',
+  'sql': 'SQL',
+  'csharp': 'C#',
+  'cpp': 'C++'
+}
+
+function openLangModal(iconSrc: string, langKey: string, background: string) {
+  langModalIcon.src = iconSrc
+  langModalIcon.alt = languageNames[langKey] || langKey
+  langModalIcon.style.background = background
+  langModalTitle.textContent = languageNames[langKey] || langKey
+  langModal.hidden = false
+  document.body.style.overflow = 'hidden'
+}
+
+function closeLangModal() {
+  langModal.hidden = true
+  document.body.style.overflow = ''
+}
+
+const languageIcons = document.querySelectorAll('.skill-icons img')
+languageIcons.forEach((icon) => {
+  icon.addEventListener('click', (e) => {
+    e.stopPropagation()
+    const img = icon as HTMLImageElement
+    const langKey = img.getAttribute('data-lang') || ''
+    const background = window.getComputedStyle(img).backgroundColor
+    openLangModal(img.src, langKey, background)
+  })
+})
+
+langModalClose.addEventListener('click', closeLangModal)
+
+langModal.addEventListener('click', (e) => {
+  if (e.target === langModal) closeLangModal()
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !langModal.hidden) closeLangModal()
 })
