@@ -31,7 +31,9 @@ app.innerHTML = `
       <button class="modal-close" aria-label="Close">&times;</button>
       <img src="/PictureOfMeCropped.JPG" alt="Profile Picture" class="profile-pic" />
       <h2>About Me</h2>
-      <p>Add your bio here...</p>
+      <p>Heyo! im Tyler. ive been coding since 2019, i started learning c# with Unity Game dev. i really enjoyed the coding aspect, and branched into other languages. im currently a sophmore in colledge, sutdying computer science. </p>
+      <br/>
+
     </div>
   </div>
   
@@ -68,7 +70,7 @@ app.innerHTML = `
         <div class="info-card-content">
           <h3 class="info-card-name">TT</h3>
           <p class="info-card-location">🌍📍Utah USA🦅</p>
-          <p class="info-card-extra">💼 Your Role / Title</p>
+          <p class="info-card-extra">💼 Student/Developer </p>
         </div>
         <div class="skill-icons">
           <div class="skill-item">
@@ -531,7 +533,7 @@ document.addEventListener('keydown', (e) => {
 let scrollbarTimeout: number | undefined
 
 function showScrollbar() {
-  document.documentElement.style.setProperty('--scrollbar-color', 'rgba(255, 255, 255, 0.6)')
+  document.documentElement.style.setProperty('--scrollbar-color', 'rgba(255, 255, 255, 1)')
   
   if (scrollbarTimeout) {
     clearTimeout(scrollbarTimeout)
