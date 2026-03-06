@@ -1,7 +1,7 @@
 import './style.css'
 import { projects } from './projects'
 import type { Project } from './projects'
-import { initFireTrail, setFireTrailEnabled, setFireTrailColor, setFireTrailSize } from './fireTrail'
+import { initFireTrail } from './fireTrail'
 
 // Initialize fire trail effect
 initFireTrail()
