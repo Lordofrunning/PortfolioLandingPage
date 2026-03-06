@@ -23,7 +23,7 @@ export const projects: Project[] = [
   {
     id: 'StarWarsRPGApp',
     title: "A Star Wars Themed RPG Helper App",
-    description: "A TTRPG StarWars Themed App Helper. Complete with Dice, Enemy Sheets, Rules, MiniGames, and a Galaxy Map. A simple Project Coded by me and my brother.",
+    description: "A TTRPG StarWars Themed App Helper. Complete with Dice, Enemy Sheets, Rules, MiniGames, and a Galaxy Map. (no live code cause its a mobile app) ",
     type: 'mobile',
     images: [ "src/Images/Mobile/SWHomePage.jpg",
     "src/Images/Mobile/SWThemePicker.jpg",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
    {
     id: 'ClothingAppDemo',
     title: "ClothingApp Demo",
-    description: "A Demo Clothing App for viewing new clothes, keeping a digital wardrobe, and planning outfits.",
+    description: "A Demo Clothing App for viewing new clothes, keeping a digital wardrobe, and planning outfits. (this is my current project ive been working on)",
     type: 'mobile',
     images: [
       "https://via.placeholder.com/450x800?text=Screenshot+1",

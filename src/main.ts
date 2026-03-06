@@ -526,3 +526,21 @@ langModal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !langModal.hidden) closeLangModal()
 })
+
+// ===== Custom Scrollbar Fade In/Out =====
+let scrollbarTimeout: number | undefined
+
+function showScrollbar() {
+  document.documentElement.style.setProperty('--scrollbar-color', 'rgba(255, 255, 255, 0.6)')
+  
+  if (scrollbarTimeout) {
+    clearTimeout(scrollbarTimeout)
+  }
+  
+  scrollbarTimeout = window.setTimeout(() => {
+    document.documentElement.style.setProperty('--scrollbar-color', 'transparent')
+  }, 1000) // Fade out after 1 second of no scrolling
+}
+
+window.addEventListener('scroll', showScrollbar, { passive: true })
+window.addEventListener('wheel', showScrollbar, { passive: true })
