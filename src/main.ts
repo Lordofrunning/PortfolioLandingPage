@@ -175,7 +175,39 @@ app.innerHTML = `
     </button>
     <div class="projects-dropdown-content" id="education-content">
       <section id="education" class="education-section">
-        <!-- Education content will go here -->
+        <article class="education-card">
+          <div class="education-media">
+            <img src="/Images/EducationImage/Mountain_View_High_School_web.png" alt="Mountain View High School" loading="lazy" />
+          </div>
+          <div class="education-body">
+            <h3>Mountain View High School</h3>
+            <p class="education-meta">High School Diploma</p>
+            <p>
+              Built my early foundation in programming and problem solving, including first projects in C# and game development workflows.
+            </p>
+            <ul class="education-points">
+              <li>Started coding in 2019 with Unity and C#</li>
+              <li>Developed consistent self-learning and project building habits</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="education-card">
+          <div class="education-media">
+            <img src="/Images/EducationImage/Weber-State-Wildcats-logo.png" alt="Weber State University" loading="lazy" />
+          </div>
+          <div class="education-body">
+            <h3>Weber State University</h3>
+            <p class="education-meta">Computer Science, Sophomore</p>
+            <p>
+              Continuing to grow in software engineering fundamentals while applying coursework concepts to real portfolio and mobile app projects.
+            </p>
+            <ul class="education-points">
+              <li>Focus areas: data structures, algorithms, and software design</li>
+              <li>Applying classroom concepts in React, Expo, and Python projects</li>
+            </ul>
+          </div>
+        </article>
       </section>
     </div>
   </div>
@@ -525,7 +557,7 @@ const languageEntries: Record<string, LanguageEntry> = {
   python: {
     languageName: 'Python',
     years: 5,
-    description: 'Python is the language i have the most experience with on backend stuff, and probably am the most comfortable with when it comes to backend stuff. ive built the most projects with python, from texas holdem poker, to backend APIs. ',
+    description: 'Python is the language i have the most experience with on backend programming, and probably am the most comfortable with when it comes to backend stuff. ive built the most projects with python, from texas holdem poker, to backend APIs. ',
   },
   expo: {
     languageName: 'Expo',

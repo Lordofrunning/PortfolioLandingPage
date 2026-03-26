@@ -238,6 +238,76 @@ button:focus-visible {
   z-index: 10;
 }
 
+.education-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.education-card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid #4a4a4a;
+  border-radius: 12px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1rem;
+  align-items: center;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-2px);
+  border-color: #888;
+  box-shadow: 0 0 20px rgb(136 136 136 / 0.25), 0 8px 24px rgb(0 0 0 / 0.18);
+}
+
+.education-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #0f0f0f;
+  border-radius: 10px;
+  border: 1px solid #3a3a3a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.education-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.75rem;
+}
+
+.education-body h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.education-meta {
+  margin: 0.25rem 0 0.65rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 600;
+}
+
+.education-body p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.education-points {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.education-points li + li {
+  margin-top: 0.35rem;
+}
+
 .project-card {
   background: rgba(26, 26, 26, 0.8);
   border: 1px solid #4a4a4a;
@@ -1210,6 +1280,15 @@ button:focus-visible {
   .dropdown-arrow {
     width: 28px;
     height: 28px;
+  }
+
+  .education-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .education-media {
+    max-width: 320px;
   }
 }
 
