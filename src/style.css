@@ -1013,12 +1013,12 @@ button:focus-visible {
   border: 1px solid #3a3a3a;
   border-radius: 12px;
   padding: 2rem;
-  max-width: 400px;
+  max-width: 840px;
   width: 90%;
   position: relative;
   animation: langModalFadeIn 0.3s ease;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 2rem;
 }
 
@@ -1037,16 +1037,68 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  flex: 0 0 33.33%;
+  min-width: 180px;
 }
 
 .lang-icon-display img {
-  width: 168px;
-  height: 168px;
+  width: min(100%, 220px);
+  height: auto;
+  aspect-ratio: 1 / 1;
   border-radius: 0 50% 0 50%;
   object-fit: contain;
   padding: 18px;
   animation: iconExpand 0.3s ease;
+}
+
+.lang-modal-details {
+  flex: 1 1 66.67%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.lang-modal-details h2 {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+}
+
+.lang-experience-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lang-experience-bar {
+  flex: 1;
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-experience-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #22d3ee 0%, #60a5fa 45%, #34d399 100%);
+  transition: width 0.35s ease;
+}
+
+.lang-experience-years {
+  min-width: 54px;
+  text-align: right;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lang-modal-description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
 }
 
 @keyframes iconExpand {
@@ -1055,6 +1107,29 @@ button:focus-visible {
   }
   to {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .lang-modal-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .lang-icon-display {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  .lang-modal-details {
+    width: 100%;
+  }
+
+  .lang-icon-display img {
+    width: min(60vw, 180px);
+    padding: 14px;
   }
 }
 
