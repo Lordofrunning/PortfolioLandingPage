@@ -1162,6 +1162,12 @@ button:focus-visible {
   z-index: 2;
 }
 
+/* Keep full mobile screenshots visible in cards/carousel. */
+.project-card[data-type="mobile"] .media img {
+  object-fit: contain;
+  object-position: top center;
+}
+
 .carousel-dots {
   position: absolute;
   bottom: 0.5rem;
