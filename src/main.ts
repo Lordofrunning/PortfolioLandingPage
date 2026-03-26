@@ -177,23 +177,6 @@ app.innerHTML = `
       <section id="education" class="education-section">
         <article class="education-card">
           <div class="education-media">
-            <img src="/Images/EducationImage/Mountain_View_High_School_web.png" alt="Mountain View High School" loading="lazy" />
-          </div>
-          <div class="education-body">
-            <h3>Mountain View High School</h3>
-            <p class="education-meta">High School Diploma</p>
-            <p>
-              Built my early foundation in programming and problem solving, including first projects in C# and game development workflows.
-            </p>
-            <ul class="education-points">
-              <li>Started coding in 2019 with Unity and C#</li>
-              <li>Developed consistent self-learning and project building habits</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="education-card">
-          <div class="education-media">
             <img src="/Images/EducationImage/Weber-State-Wildcats-logo.png" alt="Weber State University" loading="lazy" />
           </div>
           <div class="education-body">
@@ -204,7 +187,7 @@ app.innerHTML = `
             </p>
             <ul class="education-points">
               <li>Focus areas: data structures, algorithms, and software design</li>
-              <li>Applying classroom concepts in React, Expo, and Python projects</li>
+              <li>Applying classroom concepts in Javascript, SQL, Python, and C++ projects</li>
             </ul>
           </div>
         </article>
