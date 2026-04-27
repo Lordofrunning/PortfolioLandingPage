@@ -32,7 +32,7 @@ export class LanguageExperienceModal {
     icon.style.background = props.imageBackground
 
     title.textContent = props.languageName
-    experienceYears.textContent = `${props.years} yrs`
+    experienceYears.textContent = `${props.years} ${props.years === 1 ? 'year' : 'years'}`
     description.textContent = props.description
 
     // Create blocks for each year
