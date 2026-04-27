@@ -42,6 +42,29 @@ export class LanguageExperienceModal {
       const block = document.createElement('div')
       block.className = 'experience-block'
       block.style.animationDelay = `${i * 0.05}s`
+      
+      // Calculate year level (reverse order since blocks are added top-to-bottom)
+      const yearLevel = blockCount - i
+      
+      // Assign solid color based on year level
+      let color = ''
+      if (yearLevel === 1) {
+        color = '#06B6D4' // Cyan
+      } else if (yearLevel === 2) {
+        color = '#10B981' // Green
+      } else if (yearLevel === 3) {
+        color = '#FBBF24' // Yellow/Gold
+      } else if (yearLevel === 4) {
+        color = '#FB923C' // Orange
+      } else if (yearLevel === 5) {
+        color = '#EF4444' // Red
+      } else if (yearLevel === 6) {
+        color = '#DC2626' // Dark red
+      } else {
+        color = '#E911FF' // Neon pink/purple
+      }
+      
+      block.style.backgroundColor = color
       blocksContainer.appendChild(block)
     }
 

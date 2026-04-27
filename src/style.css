@@ -690,6 +690,7 @@ button:focus-visible {
   flex-wrap: wrap;
   margin-top: auto;
   padding-top: 1.5rem;
+  padding-right: 50px;
 }
 
 .skill-item {
@@ -1163,7 +1164,6 @@ button:focus-visible {
 .experience-block {
   height: 28px;
   width: 56px;
-  background: linear-gradient(90deg, #22d3ee 0%, #60a5fa 45%, #34d399 100%);
   border-radius: 4px;
   animation: blockAppear 0.4s ease forwards;
   box-shadow: 0 2px 8px rgba(34, 211, 238, 0.3);
