@@ -12,32 +12,38 @@ type LanguageExperienceModalElements = {
   closeButton: HTMLElement
   icon: HTMLImageElement
   title: HTMLElement
-  experienceFill: HTMLDivElement
+  blocksContainer: HTMLDivElement
   experienceYears: HTMLElement
   description: HTMLElement
 }
 
 export class LanguageExperienceModal {
   private readonly elements: LanguageExperienceModalElements
-  private readonly maxExperienceYears: number
 
-  constructor(elements: LanguageExperienceModalElements, maxExperienceYears = 8) {
+  constructor(elements: LanguageExperienceModalElements) {
     this.elements = elements
-    this.maxExperienceYears = maxExperienceYears
   }
 
   open(props: LanguageExperienceModalProps) {
-    const { icon, title, experienceFill, experienceYears, description, overlay } = this.elements
-    const fillPercent = Math.max(0, Math.min(100, (props.years / this.maxExperienceYears) * 100))
+    const { icon, title, blocksContainer, experienceYears, description, overlay } = this.elements
 
     icon.src = props.imageSrc
     icon.alt = props.imageAlt
     icon.style.background = props.imageBackground
 
     title.textContent = props.languageName
-    experienceFill.style.width = `${fillPercent}%`
     experienceYears.textContent = `${props.years} yrs`
     description.textContent = props.description
+
+    // Create blocks for each year
+    blocksContainer.innerHTML = ''
+    const blockCount = Math.min(props.years, 10) // Cap at 10 visible blocks
+    for (let i = 0; i < blockCount; i++) {
+      const block = document.createElement('div')
+      block.className = 'experience-block'
+      block.style.animationDelay = `${i * 0.05}s`
+      blocksContainer.appendChild(block)
+    }
 
     overlay.hidden = false
     document.body.style.overflow = 'hidden'

@@ -45,15 +45,13 @@ app.innerHTML = `
       <div class="lang-icon-display">
         <img id="lang-modal-icon" src="" alt="" />
       </div>
-      <div class="lang-modal-details">
+      <div class="lang-modal-main">
         <h2 id="lang-modal-title"></h2>
-        <div class="lang-experience-row">
-          <div class="lang-experience-bar" aria-hidden="true">
-            <div id="lang-experience-fill" class="lang-experience-fill"></div>
-          </div>
-          <span id="lang-experience-years" class="lang-experience-years"></span>
-        </div>
         <p id="lang-modal-description" class="lang-modal-description"></p>
+      </div>
+      <div class="lang-modal-bars">
+        <div id="lang-experience-blocks-container" class="lang-experience-blocks-container"></div>
+        <span id="lang-experience-years" class="lang-experience-years"></span>
       </div>
     </div>
   </div>
@@ -506,7 +504,7 @@ const langModal = document.getElementById('lang-modal')!
 const langModalClose = langModal.querySelector('.modal-close') as HTMLElement
 const langModalIcon = document.getElementById('lang-modal-icon') as HTMLImageElement
 const langModalTitle = document.getElementById('lang-modal-title')!
-const langExperienceFill = document.getElementById('lang-experience-fill') as HTMLDivElement
+const langExperienceBlocksContainer = document.getElementById('lang-experience-blocks-container') as HTMLDivElement
 const langExperienceYears = document.getElementById('lang-experience-years') as HTMLSpanElement
 const langModalDescription = document.getElementById('lang-modal-description') as HTMLParagraphElement
 
@@ -570,11 +568,10 @@ const languageModal = new LanguageExperienceModal(
     closeButton: langModalClose,
     icon: langModalIcon,
     title: langModalTitle,
-    experienceFill: langExperienceFill,
+    blocksContainer: langExperienceBlocksContainer,
     experienceYears: langExperienceYears,
     description: langModalDescription,
   },
-  8,
 )
 
 languageModal.bindDismissTriggers()
