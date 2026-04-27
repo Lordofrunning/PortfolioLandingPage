@@ -1083,14 +1083,16 @@ button:focus-visible {
   border: 1px solid #3a3a3a;
   border-radius: 12px;
   padding: 2rem;
-  max-width: 1000px;
-  width: 90%;
+  width: fit-content;
+  max-width: 90%;
   position: relative;
   animation: langModalFadeIn 0.3s ease;
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 2rem;
+  grid-template-columns: auto auto auto;
+  gap: 1rem;
   align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 @keyframes langModalFadeIn {
@@ -1110,6 +1112,8 @@ button:focus-visible {
   justify-content: center;
   flex: 0 0 auto;
   grid-column: 1;
+  width: 100%;
+  margin-right: 1rem;
 }
 
 .lang-icon-display img {
@@ -1117,7 +1121,7 @@ button:focus-visible {
   height: 200px;
   border-radius: 0 50% 0 50%;
   object-fit: contain;
-  padding: 18px;
+  padding: 24px;
   animation: iconExpand 0.3s ease;
 }
 
@@ -1128,7 +1132,7 @@ button:focus-visible {
   grid-column: 2;
   text-align: center;
   max-width: 280px;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   border-left: 1px solid #444;
   border-right: 1px solid #444;
 }
@@ -1143,9 +1147,10 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.75rem;
   align-items: center;
+  justify-content: center;
   grid-column: 3;
-  max-width: 100px;
-  margin: 0 auto;
+  margin-left: 1rem;
+  padding-right: 2rem;
 }
 
 .lang-experience-blocks-container {
@@ -1199,34 +1204,61 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 1024px) {
+  .lang-modal-content {
+    transform: scale(0.95);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .lang-modal-content {
+    transform: scale(0.9);
+    gap: 0.9rem;
+    padding: 1.75rem;
+  }
+}
+
 @media (max-width: 768px) {
   .lang-modal-content {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    padding: 1.25rem;
-  }
-
-  .lang-icon-display {
-    grid-column: 1;
-  }
-
-  .lang-modal-main {
-    grid-column: 1;
-  }
-
-  .lang-modal-bars {
-    grid-column: 1;
+    grid-template-columns: auto auto auto;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    transform: scale(0.85);
+    transform-origin: center;
   }
 
   .lang-icon-display img {
     width: 160px;
     height: 160px;
-    padding: 14px;
+    padding: 12px;
+  }
+
+  .lang-modal-main {
+    max-width: 220px;
+    padding: 0 1.25rem;
+  }
+
+  .lang-modal-main h2 {
+    font-size: 1.2rem;
+  }
+
+  .lang-modal-description {
+    font-size: 0.85rem;
   }
 
   .experience-block {
     height: 24px;
     width: 48px;
+  }
+
+  .lang-experience-years {
+    font-size: 0.85rem;
+    min-width: 50px;
+  }
+
+  .lang-modal-bars {
+    padding-right: 1rem;
   }
 }
 
