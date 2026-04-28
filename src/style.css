@@ -127,12 +127,36 @@ button:focus-visible {
   text-align: center;
 }
 
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
+}
+
 .section-title {
   font-size: 40px;
   text-align: center;
   margin: 3rem auto 4rem;
   max-width: 1400px;
   padding: 0 2rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #ffffff calc(50% - 3ch),
+    #1e40af,
+    #1e3a8a,
+    #1e40af,
+    #ffffff calc(50% + 3ch)
+  ) 0 0 / 300% 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s infinite ease-in-out;
+}
+
+.section-title::before {
+  display: none;
 }
 
 /* Projects Dropdown */
@@ -224,7 +248,7 @@ button:focus-visible {
 }
 
 #itsecurity-toggle:hover .dropdown-arrow {
-  stroke: #FCA5A5;
+  stroke: #F87171;
 }
 
 #gamedev-toggle:hover .projects-title {
@@ -232,7 +256,7 @@ button:focus-visible {
 }
 
 #gamedev-toggle:hover .dropdown-arrow {
-  stroke: #BBF7D0;
+  stroke: #86EFAC;
 }
 
 #education-toggle:hover .projects-title {
@@ -240,7 +264,7 @@ button:focus-visible {
 }
 
 #education-toggle:hover .dropdown-arrow {
-  stroke: #E9D5FF;
+  stroke: #D8B4FE;
 }
 
 .projects-title {
