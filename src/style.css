@@ -139,7 +139,7 @@ button:focus-visible {
   max-width: 1400px;
   padding: 0 2rem;
   position: relative;
-  display: inline-block;
+  display: block;
   width: 100%;
   background: linear-gradient(
     90deg,
@@ -153,6 +153,23 @@ button:focus-visible {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 6s infinite ease-in-out;
+}
+
+.role-text {
+  transition: text-shadow 300ms ease-in;
+  cursor: pointer;
+  display: inline;
+}
+
+.role-text:hover,
+.role-text:focus-visible {
+  text-shadow:
+    0  2ex rgba(0, 105, 168, 0.35),
+    0 -2ex rgba(0, 105, 168, 0.35),
+    0  4ex rgba(0, 105, 168, 0.15),
+    0 -4ex rgba(0, 105, 168, 0.15),
+    0  6ex rgba(0, 105, 168, 0.075),
+    0 -6ex rgba(0, 105, 168, 0.075);
 }
 
 .section-title::before {
