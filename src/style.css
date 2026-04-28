@@ -128,8 +128,89 @@ button:focus-visible {
 }
 
 @keyframes shimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: 0% 0; }
+  0% {
+    background-image: linear-gradient(
+      90deg,
+      white calc(0% - 5ch),
+      white calc(50% - 5ch),
+      #3b82f6 calc(50% - 3ch),
+      #1e40af 50%,
+      #3b82f6 calc(50% + 3ch),
+      white calc(50% + 5ch),
+      white calc(100% + 5ch)
+    );
+    background-position: -200% 0;
+  }
+  
+  33% {
+    background-image: linear-gradient(
+      90deg,
+      white calc(0% - 5ch),
+      white calc(50% - 5ch),
+      #3b82f6 calc(50% - 3ch),
+      #1e40af 50%,
+      #3b82f6 calc(50% + 3ch),
+      white calc(50% + 5ch),
+      white calc(100% + 5ch)
+    );
+    background-position: -100% 0;
+  }
+  
+  33.1% {
+    background-image: linear-gradient(
+      90deg,
+      white calc(0% - 5ch),
+      white calc(50% - 5ch),
+      #ef4444 calc(50% - 3ch),
+      #dc2626 50%,
+      #ef4444 calc(50% + 3ch),
+      white calc(50% + 5ch),
+      white calc(100% + 5ch)
+    );
+    background-position: -100% 0;
+  }
+  
+  66% {
+    background-image: linear-gradient(
+      90deg,
+      white calc(0% - 5ch),
+      white calc(50% - 5ch),
+      #ef4444 calc(50% - 3ch),
+      #dc2626 50%,
+      #ef4444 calc(50% + 3ch),
+      white calc(50% + 5ch),
+      white calc(100% + 5ch)
+    );
+    background-position: 0% 0;
+  }
+  
+  66.1% {
+    background-image: linear-gradient(
+      90deg,
+      white calc(0% - 5ch),
+      white calc(50% - 5ch),
+      #22c55e calc(50% - 3ch),
+      #16a34a 50%,
+      #22c55e calc(50% + 3ch),
+      white calc(50% + 5ch),
+      white calc(100% + 5ch)
+    );
+    background-position: 0% 0;
+  }
+  
+  100% {
+    background-image: linear-gradient(
+      90deg,
+      white calc(0% - 5ch),
+      white calc(50% - 5ch),
+      #22c55e calc(50% - 3ch),
+      #16a34a 50%,
+      #22c55e calc(50% + 3ch),
+      white calc(50% + 5ch),
+      white calc(100% + 5ch)
+    );
+    background-position: 100% 0;
+  }
 }
 
 .section-title {
@@ -141,18 +222,12 @@ button:focus-visible {
   position: relative;
   display: block;
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    #ffffff calc(50% - 3ch),
-    #1e40af,
-    #1e3a8a,
-    #1e40af,
-    #ffffff calc(50% + 3ch)
-  ) 0 0 / 300% 100% no-repeat;
+  color: white;
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 6s infinite ease-in-out;
+  animation: shimmer 6s infinite linear;
 }
 
 .role-text {
@@ -161,15 +236,40 @@ button:focus-visible {
   display: inline;
 }
 
-.role-text:hover,
-.role-text:focus-visible {
+/* Software Designer - Blue ghost text */
+.role-text:nth-of-type(1):hover,
+.role-text:nth-of-type(1):focus-visible {
   text-shadow:
-    0  2ex rgba(0, 105, 168, 0.35),
-    0 -2ex rgba(0, 105, 168, 0.35),
-    0  4ex rgba(0, 105, 168, 0.15),
-    0 -4ex rgba(0, 105, 168, 0.15),
-    0  6ex rgba(0, 105, 168, 0.075),
-    0 -6ex rgba(0, 105, 168, 0.075);
+    0  2ex rgba(59, 130, 246, 0.35),
+    0 -2ex rgba(59, 130, 246, 0.35),
+    0  4ex rgba(59, 130, 246, 0.15),
+    0 -4ex rgba(59, 130, 246, 0.15),
+    0  6ex rgba(59, 130, 246, 0.075),
+    0 -6ex rgba(59, 130, 246, 0.075);
+}
+
+/* AI Enthusiast - Red ghost text */
+.role-text:nth-of-type(2):hover,
+.role-text:nth-of-type(2):focus-visible {
+  text-shadow:
+    0  2ex rgba(239, 68, 68, 0.35),
+    0 -2ex rgba(239, 68, 68, 0.35),
+    0  4ex rgba(239, 68, 68, 0.15),
+    0 -4ex rgba(239, 68, 68, 0.15),
+    0  6ex rgba(239, 68, 68, 0.075),
+    0 -6ex rgba(239, 68, 68, 0.075);
+}
+
+/* Indie Game Dev - Green ghost text */
+.role-text:nth-of-type(3):hover,
+.role-text:nth-of-type(3):focus-visible {
+  text-shadow:
+    0  2ex rgba(34, 197, 94, 0.35),
+    0 -2ex rgba(34, 197, 94, 0.35),
+    0  4ex rgba(34, 197, 94, 0.15),
+    0 -4ex rgba(34, 197, 94, 0.15),
+    0  6ex rgba(34, 197, 94, 0.075),
+    0 -6ex rgba(34, 197, 94, 0.075);
 }
 
 .section-title::before {
