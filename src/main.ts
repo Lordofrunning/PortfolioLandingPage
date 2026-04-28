@@ -33,8 +33,10 @@ app.innerHTML = `
       <img src="/PictureOfMeCropped.JPG" alt="Profile Picture" class="profile-pic" />
       <h2>About Me</h2>
       <p>Heyo! im Tyler. ive been coding since 2019, i started learning c# with Unity Game dev. i really enjoyed the coding aspect, and branched into other languages. im currently a sophmore in colledge, sutdying computer science. </p>
-      <br/>
-
+    </div>
+    <div class="profile-modal-buttons">
+      <button class="profile-btn profile-btn-primary">More About Me</button>
+      <button class="profile-btn profile-btn-close">Close</button>
     </div>
   </div>
   
@@ -78,7 +80,7 @@ app.innerHTML = `
         <div class="info-card-content">
           <h3 class="info-card-name">TT</h3>
           <p class="info-card-location">🌍📍Utah USA🦅</p>
-          <p class="info-card-extra">💼 Student/Developer </p>
+          <p class="info-card-extra">Student/Developer </p>
         </div>
         <div class="skill-icons">
           <div class="skill-item">
@@ -150,16 +152,48 @@ app.innerHTML = `
     </article> -->
   </section>
   
+  <h1 class="section-title">Software Designer, AI Enthusiast, Indie Game Dev</h1>
+  
   <!-- Projects Dropdown Section -->
   <div class="projects-dropdown-container">
     <button class="projects-dropdown-toggle" id="projects-toggle">
-      <span class="projects-title">Projects</span>
+      <span class="projects-title">Software/Websites/Apps</span>
       <svg class="dropdown-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
     </button>
     <div class="projects-dropdown-content" id="projects-content">
       <section id="projects" class="projects"></section>
+    </div>
+  </div>
+
+  <!-- IT/Cyber Security Dropdown Section -->
+  <div class="projects-dropdown-container">
+    <button class="projects-dropdown-toggle" id="itsecurity-toggle">
+      <span class="projects-title">IT/Cyber Security</span>
+      <svg class="dropdown-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+    <div class="projects-dropdown-content" id="itsecurity-content">
+      <section id="itsecurity" class="itsecurity-section">
+        <!-- Content will go here -->
+      </section>
+    </div>
+  </div>
+
+  <!-- Game Development Dropdown Section -->
+  <div class="projects-dropdown-container">
+    <button class="projects-dropdown-toggle" id="gamedev-toggle">
+      <span class="projects-title">Game Development</span>
+      <svg class="dropdown-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+    <div class="projects-dropdown-content" id="gamedev-content">
+      <section id="gamedev" class="gamedev-section">
+        <!-- Content will go here -->
+      </section>
     </div>
   </div>
   
@@ -401,6 +435,8 @@ const profileBtn = document.getElementById('profile-btn')!
 const avatarBtn = document.getElementById('avatar-btn')!
 const profileModal = document.getElementById('profile-modal')!
 const profileModalClose = profileModal.querySelector('.modal-close')!
+const profileBtnClose = profileModal.querySelector('.profile-btn-close')!
+const profileBtnMore = profileModal.querySelector('.profile-btn-primary')!
 
 function openProfileModal() {
   profileModal.hidden = false
@@ -416,6 +452,11 @@ profileBtn.addEventListener('click', openProfileModal)
 avatarBtn.addEventListener('click', openProfileModal)
 
 profileModalClose.addEventListener('click', closeProfileModal)
+profileBtnClose.addEventListener('click', closeProfileModal)
+profileBtnMore.addEventListener('click', () => {
+  // TODO: Add functionality for "More About Me" button
+  console.log('More About Me clicked')
+})
 
 profileModal.addEventListener('click', (e) => {
   if (e.target === profileModal) closeProfileModal()
@@ -487,6 +528,26 @@ projectsToggle.addEventListener('click', () => {
   const isExpanded = projectsContent.classList.toggle('expanded')
   projectsToggle.classList.toggle('expanded', isExpanded)
   projectsToggle.setAttribute('aria-expanded', isExpanded.toString())
+})
+
+// ===== IT/Cyber Security Dropdown Toggle =====
+const itsecurityToggle = document.getElementById('itsecurity-toggle') as HTMLButtonElement
+const itsecurityContent = document.getElementById('itsecurity-content') as HTMLDivElement
+
+itsecurityToggle.addEventListener('click', () => {
+  const isExpanded = itsecurityContent.classList.toggle('expanded')
+  itsecurityToggle.classList.toggle('expanded', isExpanded)
+  itsecurityToggle.setAttribute('aria-expanded', isExpanded.toString())
+})
+
+// ===== Game Development Dropdown Toggle =====
+const gamedevToggle = document.getElementById('gamedev-toggle') as HTMLButtonElement
+const gamedevContent = document.getElementById('gamedev-content') as HTMLDivElement
+
+gamedevToggle.addEventListener('click', () => {
+  const isExpanded = gamedevContent.classList.toggle('expanded')
+  gamedevToggle.classList.toggle('expanded', isExpanded)
+  gamedevToggle.setAttribute('aria-expanded', isExpanded.toString())
 })
 
 // ===== Education Dropdown Toggle =====
