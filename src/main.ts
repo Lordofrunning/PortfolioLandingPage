@@ -152,11 +152,11 @@ app.innerHTML = `
     </article> -->
   </section>
   
-  <h1 class="section-title">
-    <span class="role-text">Software Designer</span>,
-    <span class="role-text">AI Enthusiast</span>,
-    <span class="role-text">Indie Game Dev</span>
-  </h1>
+  <div class="roles-container">
+    <h1 class="role-title role-software">Software Designer</h1>
+    <h1 class="role-title role-ai">AI Enthusiast</h1>
+    <h1 class="role-title role-gamedev">Indie Game Dev</h1>
+  </div>
   
   <!-- Projects Dropdown Section -->
   <div class="projects-dropdown-container">
