@@ -151,7 +151,7 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 4.5rem;
   margin: 3rem auto 4rem;
   max-width: 1400px;
   padding: 0 2rem;
@@ -378,11 +378,11 @@ button:focus-visible {
 
 /* Individual dropdown hover colors */
 #itsecurity-toggle:hover .projects-title {
-  color: #991B1B;
+  color: #ef4444;
 }
 
 #itsecurity-toggle:hover .dropdown-arrow {
-  stroke: #F87171;
+  stroke: #fca5a5;
 }
 
 #gamedev-toggle:hover .projects-title {
@@ -1258,6 +1258,12 @@ button:focus-visible {
   width: 90%;
   text-align: center;
   position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  align-self: center;
+}
+
+#profile-modal.expanded .profile-modal-content {
+  align-self: flex-start;
 }
 
 .profile-pic {
@@ -1276,10 +1282,66 @@ button:focus-visible {
   margin-top: 1.5rem;
   width: 90%;
   max-width: 400px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  align-self: center;
+}
+
+#profile-modal.expanded .profile-modal-buttons {
+  align-self: flex-start;
+}
 }
 
 #profile-modal {
   flex-direction: column;
+}
+
+#profile-modal::before {
+  content: '';
+  position: fixed;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#profile-modal.expanded::before {
+  inset: 5%;
+  width: auto;
+  height: auto;
+  transform: none;
+  border-radius: 0;
+}
+
+#profile-modal.expanded {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5%;
+}
+
+#profile-modal.expanded > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Expanded profile modal */
+#profile-modal.expanded .profile-modal-content {
+  max-width: 400px;
+  width: 90%;
+  height: auto;
+  overflow-y: visible;
+  flex-shrink: 0;
+}
+
+#profile-modal.expanded .profile-modal-buttons {
+  max-width: 400px;
+  width: 90%;
+  flex-shrink: 0;
 }
 
 .profile-btn {

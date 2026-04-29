@@ -458,8 +458,7 @@ avatarBtn.addEventListener('click', openProfileModal)
 profileModalClose.addEventListener('click', closeProfileModal)
 profileBtnClose.addEventListener('click', closeProfileModal)
 profileBtnMore.addEventListener('click', () => {
-  // TODO: Add functionality for "More About Me" button
-  console.log('More About Me clicked')
+  profileModal.classList.toggle('expanded')
 })
 
 profileModal.addEventListener('click', (e) => {
