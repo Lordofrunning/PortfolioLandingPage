@@ -207,7 +207,7 @@ button:focus-visible {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer-red 6s infinite ease-in-out;
-  animation-delay: 6s;
+  animation-delay: 2s;
 }
 
 .role-ai:hover {
@@ -234,7 +234,7 @@ button:focus-visible {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer-green 6s infinite ease-in-out;
-  animation-delay: 12s;
+  animation-delay: 4s;
 }
 
 .role-gamedev:hover {
