@@ -586,24 +586,33 @@ const roleGameDev = document.querySelector('.role-gamedev') as HTMLElement | nul
 if (roleSoftware) {
   roleSoftware.style.cursor = 'pointer'
   roleSoftware.addEventListener('click', () => {
+    const isCurrentlyExpanded = projectsContent.classList.contains('expanded')
     projectsToggle.click()
-    projectsContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (!isCurrentlyExpanded) {
+      projectsContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   })
 }
 
 if (roleIT) {
   roleIT.style.cursor = 'pointer'
   roleIT.addEventListener('click', () => {
+    const isCurrentlyExpanded = itsecurityContent.classList.contains('expanded')
     itsecurityToggle.click()
-    itsecurityContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (!isCurrentlyExpanded) {
+      itsecurityContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   })
 }
 
 if (roleGameDev) {
   roleGameDev.style.cursor = 'pointer'
   roleGameDev.addEventListener('click', () => {
+    const isCurrentlyExpanded = gamedevContent.classList.contains('expanded')
     gamedevToggle.click()
-    gamedevContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (!isCurrentlyExpanded) {
+      gamedevContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   })
 }
 

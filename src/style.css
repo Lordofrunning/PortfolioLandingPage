@@ -347,6 +347,40 @@ button:focus-visible {
   opacity: 1;
 }
 
+/* Dropdown line colors when expanded */
+#projects-content.expanded::after {
+  background: #60a5fa;
+}
+
+#itsecurity-content.expanded::after {
+  background: #ef4444;
+}
+
+#gamedev-content.expanded::after {
+  background: #22C55E;
+}
+
+#education-content.expanded::after {
+  background: #A855F7;
+}
+
+/* Top line colors when expanded */
+.projects-dropdown-container:has(#projects-content.expanded)::after {
+  background: #60a5fa;
+}
+
+.projects-dropdown-container:has(#itsecurity-content.expanded)::after {
+  background: #ef4444;
+}
+
+.projects-dropdown-container:has(#gamedev-content.expanded)::after {
+  background: #22C55E;
+}
+
+.projects-dropdown-container:has(#education-content.expanded)::after {
+  background: #A855F7;
+}
+
 .projects-dropdown-container:has(.projects-dropdown-content:not(.expanded))::after {
   top: calc(1rem + 2.5rem + 1rem + 1rem);
 }
