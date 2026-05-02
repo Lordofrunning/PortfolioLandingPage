@@ -154,8 +154,8 @@ app.innerHTML = `
   
   <div class="roles-container">
     <h1 class="role-title role-software">Software Designer</h1>
-    <h1 class="role-title role-ai">AI Enthusiast</h1>
-    <h1 class="role-title role-gamedev">Indie Game Dev</h1>
+    <h1 class="role-title role-ai">Information Technology</h1>
+    <h1 class="role-title role-gamedev">Game Development</h1>
   </div>
   
   <!-- Projects Dropdown Section -->
@@ -448,7 +448,7 @@ window.addEventListener('scroll', updateFixedHeader, { passive: true })
 updateFixedHeader()
 
 // ===== Profile Modal =====
-const profileBtn = document.getElementById('profile-btn')!
+const profileBtn = document.getElementById('profile-btn')
 const avatarBtn = document.getElementById('avatar-btn')!
 const profileModal = document.getElementById('profile-modal')!
 const profileModalClose = profileModal.querySelector('.modal-close')!
@@ -465,7 +465,9 @@ function closeProfileModal() {
   document.body.style.overflow = ''
 }
 
-profileBtn.addEventListener('click', openProfileModal)
+if (profileBtn) {
+  profileBtn.addEventListener('click', openProfileModal)
+}
 avatarBtn.addEventListener('click', openProfileModal)
 
 profileModalClose.addEventListener('click', closeProfileModal)

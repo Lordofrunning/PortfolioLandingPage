@@ -162,8 +162,13 @@ button:focus-visible {
   font-size: 40px;
   margin: 0;
   color: white;
-  transition: text-shadow 300ms ease-in;
+  transition: text-shadow 300ms ease-in, transform 300ms ease-in;
   cursor: pointer;
+  user-select: none;
+}
+
+.role-title:hover {
+  transform: scale(1.05);
 }
 
 /* Software Designer - Blue shimmer */
@@ -376,12 +381,28 @@ button:focus-visible {
   stroke: #dbeafe;
 }
 
+.projects-dropdown-toggle.expanded .projects-title {
+  color: #60a5fa;
+}
+
+.projects-dropdown-toggle.expanded .dropdown-arrow {
+  stroke: #dbeafe;
+}
+
 /* Individual dropdown hover colors */
 #itsecurity-toggle:hover .projects-title {
   color: #ef4444;
 }
 
 #itsecurity-toggle:hover .dropdown-arrow {
+  stroke: #fca5a5;
+}
+
+#itsecurity-toggle.expanded .projects-title {
+  color: #ef4444;
+}
+
+#itsecurity-toggle.expanded .dropdown-arrow {
   stroke: #fca5a5;
 }
 
@@ -393,11 +414,27 @@ button:focus-visible {
   stroke: #86EFAC;
 }
 
+#gamedev-toggle.expanded .projects-title {
+  color: #22C55E;
+}
+
+#gamedev-toggle.expanded .dropdown-arrow {
+  stroke: #86EFAC;
+}
+
 #education-toggle:hover .projects-title {
   color: #A855F7;
 }
 
 #education-toggle:hover .dropdown-arrow {
+  stroke: #D8B4FE;
+}
+
+#education-toggle.expanded .projects-title {
+  color: #A855F7;
+}
+
+#education-toggle.expanded .dropdown-arrow {
   stroke: #D8B4FE;
 }
 
