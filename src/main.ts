@@ -181,7 +181,20 @@ app.innerHTML = `
     </button>
     <div class="projects-dropdown-content" id="itsecurity-content">
       <section id="itsecurity" class="itsecurity-section">
-        <!-- Content will go here -->
+        <div class="itsecurity-columns">
+          <div class="itsecurity-column itsecurity-left">
+            <h3>IT Certifications</h3>
+            <p>Add your IT/Cyber Security content here</p>
+          </div>
+          <div class="itsecurity-column itsecurity-center">
+            <h3>Labs and Course Work</h3>
+            <p>Add your IT/Cyber Security content here</p>
+          </div>
+          <div class="itsecurity-column itsecurity-right">
+            <h3>Experience</h3>
+            <p>Add your IT/Cyber Security content here</p>
+          </div>
+        </div>
       </section>
     </div>
   </div>

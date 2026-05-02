@@ -435,6 +435,52 @@ button:focus-visible {
   gap: 1.5rem;
 }
 
+/* IT/Cyber Security Section - Three Column Layout */
+.itsecurity-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.itsecurity-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.itsecurity-column {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid #4a4a4a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.itsecurity-column:hover {
+  transform: translateY(-2px);
+  border-color: #888;
+  box-shadow: 0 0 20px rgb(136 136 136 / 0.25), 0 8px 24px rgb(0 0 0 / 0.18);
+}
+
+.itsecurity-column h3 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.itsecurity-column p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.education-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .education-card {
   background: rgba(26, 26, 26, 0.8);
   border: 1px solid #4a4a4a;
@@ -1591,6 +1637,12 @@ button:focus-visible {
 
   .education-media {
     max-width: 320px;
+  }
+
+  /* IT/Cyber Security responsive layout - stack vertically on small screens */
+  .itsecurity-columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
