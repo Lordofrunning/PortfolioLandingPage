@@ -578,6 +578,35 @@ educationToggle.addEventListener('click', () => {
   educationToggle.setAttribute('aria-expanded', isExpanded.toString())
 })
 
+// ===== Role Title Clicks Open Dropdowns =====
+const roleSoftware = document.querySelector('.role-software') as HTMLElement | null
+const roleIT = document.querySelector('.role-ai') as HTMLElement | null
+const roleGameDev = document.querySelector('.role-gamedev') as HTMLElement | null
+
+if (roleSoftware) {
+  roleSoftware.style.cursor = 'pointer'
+  roleSoftware.addEventListener('click', () => {
+    projectsToggle.click()
+    projectsContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+}
+
+if (roleIT) {
+  roleIT.style.cursor = 'pointer'
+  roleIT.addEventListener('click', () => {
+    itsecurityToggle.click()
+    itsecurityContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+}
+
+if (roleGameDev) {
+  roleGameDev.style.cursor = 'pointer'
+  roleGameDev.addEventListener('click', () => {
+    gamedevToggle.click()
+    gamedevContent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+}
+
 // ===== Language Icon Modal =====
 const langModal = document.getElementById('lang-modal')!
 const langModalClose = langModal.querySelector('.modal-close') as HTMLElement

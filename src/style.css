@@ -753,8 +753,8 @@ button:focus-visible {
 }
 
 .fixed-header.visible {
-  height: 1rem;
-  padding: 1rem 0;
+  height: 3rem;
+  padding: 0.5rem 0;
   border-bottom-color: #2a2a2a;
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
 }
@@ -811,11 +811,30 @@ button:focus-visible {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  border: 2px solid #4a4a4a;
+  background: #0f0f0f;
 }
 
 .profile-btn {
   padding: 0;
   overflow: hidden;
+}
+
+.header-nav .profile-btn {
+  padding: 0 !important;
+  overflow: hidden;
+  margin: 0;
+  border: 2px solid #4a4a4a !important;
+  background: transparent !important;
+  width: 45px !important;
+  height: 45px !important;
+  min-width: 45px !important;
+  min-height: 45px !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* Info Cards Section */
