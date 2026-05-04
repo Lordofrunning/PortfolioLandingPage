@@ -546,6 +546,78 @@ button:focus-visible {
   line-height: 1.6;
 }
 
+.cert-item {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+}
+
+.cert-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.cert-row .cert-item {
+  margin: 0;
+  flex: 1;
+}
+
+.cert-row > div {
+  flex-shrink: 0;
+}
+
+@property --p {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.donut-chart-svg {
+  display: inline-block;
+}
+
+.donut-chart-container {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.donut-chart-container > * {
+  grid-area: 1/1;
+}
+
+.donut-chart-pie {
+  --thickness: 13px;
+  --_inner: calc(70% - var(--thickness));
+  --_outer: calc(var(--_inner) + 1px);
+  
+  width: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  
+  mask: radial-gradient(circle, #0000 var(--_inner), #000 var(--_outer));
+}
+
+/* 60% A+ chart: more red, ends at light green */
+#chart-aplus .donut-chart-pie {
+  background-image: conic-gradient(#ef4444 0deg, #ef4444 calc(var(--ng) * 0.25deg), #ffa500 calc(var(--ng) * 0.58deg), #ffff00 calc(var(--ng) * 0.92deg), #90ee90 calc(var(--ng) * 1deg), #0000 calc(var(--ng) * 1deg));
+}
+
+/* 35% Network+ chart: same gradient as 60%, but in 35% spot */
+#chart-networkplus .donut-chart-pie {
+  background-image: conic-gradient(#ef4444 0deg, #ef4444 calc(var(--ng) * 0.25deg), #ffa500 calc(var(--ng) * 1deg), #0000 calc(var(--ng) * 1deg));
+}
+
+.donut-chart-label {
+  font-size: 22px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.95);
+  z-index: 1;
+}
+
 .course-title {
   margin: 0;
   font-size: 1.25rem;

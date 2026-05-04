@@ -3,6 +3,7 @@ import { projects } from './projects'
 import type { Project } from './projects'
 import { initFireTrail } from './fireTrail'
 import { LanguageExperienceModal, type LanguageExperienceModalProps } from './components/languageExperienceModal'
+import { createDonutChart } from './components/donutChart'
 
 // Initialize fire trail effect
 initFireTrail()
@@ -184,7 +185,14 @@ app.innerHTML = `
         <div class="itsecurity-columns">
           <div class="itsecurity-column itsecurity-left">
             <h3>IT Certifications</h3>
-            <p>Working Towards: CompTIA A+<br>Working Towards: CompTIA Network+</p>
+            <div class="cert-row">
+              <p class="cert-item">CompTIA A+</p>
+              <div id="chart-aplus"></div>
+            </div>
+            <div class="cert-row">
+              <p class="cert-item">CompTIA Network+</p>
+              <div id="chart-networkplus"></div>
+            </div>
           </div>
           <div class="itsecurity-column itsecurity-center">
             <h3>Course Work</h3>
@@ -200,7 +208,7 @@ app.innerHTML = `
           </div>
           <div class="itsecurity-column itsecurity-right">
             <h3>Experience</h3>
-            <p>Add your IT/Cyber Security content here</p>
+            <p>working on it.....</p>
           </div>
         </div>
       </section>
@@ -754,3 +762,23 @@ function showScrollbar() {
 
 window.addEventListener('scroll', showScrollbar, { passive: true })
 window.addEventListener('wheel', showScrollbar, { passive: true })
+
+// ===== Initialize Donut Charts =====
+const chartAPlusContainer = document.getElementById('chart-aplus')
+const chartNetworkPlusContainer = document.getElementById('chart-networkplus')
+
+if (chartAPlusContainer) {
+  const chartAPlus = createDonutChart({
+    percentage: 60,
+    size: 100,
+  })
+  chartAPlusContainer.appendChild(chartAPlus)
+}
+
+if (chartNetworkPlusContainer) {
+  const chartNetworkPlus = createDonutChart({
+    percentage: 35,
+    size: 100,
+  })
+  chartNetworkPlusContainer.appendChild(chartNetworkPlus)
+}
