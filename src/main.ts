@@ -12,7 +12,7 @@ if (!app) throw new Error('Missing #app element')
 
 app.innerHTML = `
   <div class="fixed-header">
-    <h1>TT's Portfolio</h1>
+    <h1>My Portfolio</h1>
     <nav class="header-nav">
       <a href="#" class="nav-icon" id="nav-placeholder" title="Coming Soon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="10">?</text></svg>
@@ -59,7 +59,7 @@ app.innerHTML = `
   </div>
   
   <div class="top-banner">
-    <h1>TT's Portfolio</h1>
+    <h1>My Portfolio</h1>
   </div>
   <header class="site-header">
     <!-- header under top banner if needed -->
@@ -78,7 +78,7 @@ app.innerHTML = `
           </a>
         </div>
         <div class="info-card-content">
-          <h3 class="info-card-name">TT</h3>
+          <h3 class="info-card-name">Tyler</h3>
           <p class="info-card-location">🌍📍Utah USA🦅</p>
           <p class="info-card-extra">Student/Developer </p>
         </div>

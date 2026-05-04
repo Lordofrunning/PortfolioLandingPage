@@ -36,11 +36,11 @@ export const projects: Project[] = [
     description: "A Demo Clothing App for viewing new clothes, keeping a digital wardrobe, and planning outfits. (this is my current project ive been working on)",
     type: 'mobile',
     images: [
-      "/Images/clothingapp1.jpg",
-      "/Images/clothingapp2.jpg",
-      "/Images/clothingapp3.jpg",
-      "/Images/clothingapp4.jpg",
-      "/Images/clothingapp5.jpg"
+      "/Images/Mobile/clothingapp1.jpg",
+      "/Images/Mobile/clothingapp2.jpg",
+      "/Images/Mobile/clothingapp3.jpg",
+      "/Images/Mobile/clothingapp4.jpg",
+      "/Images/Mobile/clothingapp5.jpg"
     ],
     repoUrl: "https://github.com/Lordofrunning/clothingapp.git",
     tags: ["React", "ExpoGo", "Python" ],

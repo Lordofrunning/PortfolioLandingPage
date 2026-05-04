@@ -860,15 +860,19 @@ button:focus-visible {
   margin: 0;
   border: 2px solid #4a4a4a !important;
   background: transparent !important;
-  width: 45px !important;
-  height: 45px !important;
-  min-width: 45px !important;
-  min-height: 45px !important;
+  width: 54px !important;
+  height: 54px !important;
+  min-width: 54px !important;
+  min-height: 54px !important;
   border-radius: 50% !important;
   box-sizing: border-box !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+
+.header-nav .profile-btn:hover {
+  filter: brightness(1.2);
 }
 
 /* Info Cards Section */
@@ -976,8 +980,8 @@ button:focus-visible {
 }
 
 .info-card-avatar {
-  width: 120px;
-  height: 120px;
+  width: 144px;
+  height: 144px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #4a4a4a;
@@ -1401,8 +1405,8 @@ button:focus-visible {
 }
 
 .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 144px;
+  height: 144px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
