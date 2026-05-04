@@ -184,11 +184,19 @@ app.innerHTML = `
         <div class="itsecurity-columns">
           <div class="itsecurity-column itsecurity-left">
             <h3>IT Certifications</h3>
-            <p>Add your IT/Cyber Security content here</p>
+            <p>Working Towards: CompTIA A+<br>Working Towards: CompTIA Network+</p>
           </div>
           <div class="itsecurity-column itsecurity-center">
-            <h3>Labs and Course Work</h3>
-            <p>Add your IT/Cyber Security content here</p>
+            <h3>Course Work</h3>
+            <hr class="course-divider">
+            <button class="course-dropdown-toggle" id="cybr2300-toggle">
+              <span class="course-title">CYBR 2300</span>
+              <svg class="dropdown-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+            <p class="course-description" id="cybr2300-content" hidden>Introductory course covering core computer networking and cybersecurity concepts, including protocols (TCP/IP, HTTP, UDP, TLS), packet transmission, and internet infrastructure. Emphasizes network standards, Ethernet/Wi-Fi systems, and foundational security topics like attacks and defense strategies.</p>
+            <h3>Labs</h3>
           </div>
           <div class="itsecurity-column itsecurity-right">
             <h3>Experience</h3>
@@ -576,6 +584,17 @@ educationToggle.addEventListener('click', () => {
   const isExpanded = educationContent.classList.toggle('expanded')
   educationToggle.classList.toggle('expanded', isExpanded)
   educationToggle.setAttribute('aria-expanded', isExpanded.toString())
+})
+
+// ===== CYBR 2300 Dropdown Toggle =====
+const cybr2300Toggle = document.getElementById('cybr2300-toggle') as HTMLButtonElement
+const cybr2300Content = document.getElementById('cybr2300-content') as HTMLElement
+
+cybr2300Toggle.addEventListener('click', () => {
+  const isExpanded = cybr2300Content.hidden
+  cybr2300Content.hidden = !isExpanded
+  cybr2300Toggle.classList.toggle('expanded', !isExpanded)
+  cybr2300Toggle.setAttribute('aria-expanded', (!isExpanded).toString())
 })
 
 // ===== Role Title Clicks Open Dropdowns =====

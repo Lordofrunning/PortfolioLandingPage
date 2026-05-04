@@ -546,6 +546,77 @@ button:focus-visible {
   line-height: 1.6;
 }
 
+.course-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.course-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.course-dropdown-toggle:focus {
+  outline: none;
+}
+
+.course-dropdown-toggle:focus-visible {
+  outline: 3px solid #ff4444;
+  outline-offset: 2px;
+}
+
+.course-dropdown-toggle:hover .course-title {
+  color: #ef4444;
+}
+
+.course-dropdown-toggle:hover .dropdown-arrow {
+  stroke: #fca5a5;
+}
+
+.course-dropdown-toggle.expanded .course-title {
+  color: #ef4444;
+}
+
+.course-dropdown-toggle.expanded .dropdown-arrow {
+  stroke: #fca5a5;
+}
+
+.course-dropdown-toggle .dropdown-arrow {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  transition: transform 0.3s ease;
+}
+
+.course-dropdown-toggle.expanded .dropdown-arrow {
+  transform: rotate(90deg);
+}
+
+.course-divider {
+  border: none;
+  border-top: 2px solid #ff4444;
+  margin: 0.75rem 0 1rem;
+}
+
+.course-description {
+  margin: 0 0 2.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
 .education-section {
   display: flex;
   flex-direction: column;
