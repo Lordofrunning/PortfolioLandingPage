@@ -591,10 +591,10 @@ const cybr2300Toggle = document.getElementById('cybr2300-toggle') as HTMLButtonE
 const cybr2300Content = document.getElementById('cybr2300-content') as HTMLElement
 
 cybr2300Toggle.addEventListener('click', () => {
-  const isExpanded = cybr2300Content.hidden
-  cybr2300Content.hidden = !isExpanded
-  cybr2300Toggle.classList.toggle('expanded', !isExpanded)
-  cybr2300Toggle.setAttribute('aria-expanded', (!isExpanded).toString())
+  cybr2300Content.hidden = !cybr2300Content.hidden
+  const isExpanded = !cybr2300Content.hidden
+  cybr2300Toggle.classList.toggle('expanded', isExpanded)
+  cybr2300Toggle.setAttribute('aria-expanded', isExpanded.toString())
 })
 
 // ===== Role Title Clicks Open Dropdowns =====

@@ -596,8 +596,9 @@ button:focus-visible {
 .course-dropdown-toggle .dropdown-arrow {
   width: 20px;
   height: 20px;
-  margin-top: 0;
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
+  margin-top: 2.5px;
 }
 
 .course-dropdown-toggle.expanded .dropdown-arrow {
