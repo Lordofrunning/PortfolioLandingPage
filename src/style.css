@@ -988,7 +988,7 @@ button:focus-visible {
 .profile-btn-text {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #00599C;
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1003,7 +1003,7 @@ button:focus-visible {
   padding: 0 !important;
   overflow: hidden;
   margin: 0;
-  border: 2px solid #00599C !important;
+  border: 2px solid #ffffff !important;
   background: transparent !important;
   width: 54px !important;
   height: 54px !important;
