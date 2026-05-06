@@ -1094,6 +1094,9 @@ button:focus-visible {
 }
 
 .avatar-github-link {
+  position: absolute;
+  top: -15px;
+  right: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1103,12 +1106,14 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease;
+  border: 3px solid #3a3a3a;
 }
 
+
 .avatar-github-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
 }
 
 .avatar-github-link svg {

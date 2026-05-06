@@ -225,7 +225,7 @@ app.innerHTML = `
     </button>
     <div class="projects-dropdown-content" id="gamedev-content">
       <section id="gamedev" class="gamedev-section">
-        <!-- Content will go here -->
+        <p style="text-align: center; color: rgba(255, 255, 255, 0.85); padding: 2rem; font-size: 1.1rem;">In Progress</p>
       </section>
     </div>
   </div>
