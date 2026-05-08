@@ -1,0 +1,149 @@
+.projects-dropdown-container {
+  margin: 2rem auto;
+  max-width: 1400px;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.projects-dropdown-container::after {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  top: calc(1rem + 2.5rem + 1rem);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.87);
+  transition: top 0.5s ease;
+}
+
+.projects-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.projects-dropdown-content::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.87);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.projects-dropdown-content.expanded {
+  max-height: 10000px;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.projects-dropdown-content.expanded::after {
+  opacity: 1;
+}
+
+/* Bottom line colors per section */
+#projects-content.expanded::after    { background: #60a5fa; }
+#itsecurity-content.expanded::after  { background: #ef4444; }
+#gamedev-content.expanded::after     { background: #22C55E; }
+#education-content.expanded::after   { background: #A855F7; }
+
+/* Top line colors per section */
+.projects-dropdown-container:has(#projects-content.expanded)::after    { background: #60a5fa; }
+.projects-dropdown-container:has(#itsecurity-content.expanded)::after  { background: #ef4444; }
+.projects-dropdown-container:has(#gamedev-content.expanded)::after     { background: #22C55E; }
+.projects-dropdown-container:has(#education-content.expanded)::after   { background: #A855F7; }
+
+.projects-dropdown-container:has(.projects-dropdown-content:not(.expanded))::after {
+  top: calc(1rem + 2.5rem + 1rem + 1rem);
+}
+
+.projects-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  padding: 1rem 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.projects-dropdown-toggle:focus {
+  outline: none;
+}
+
+.projects-dropdown-toggle:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 4px;
+}
+
+/* Default (software) hover/expanded colors */
+.projects-dropdown-toggle:hover .projects-title,
+.projects-dropdown-toggle.expanded .projects-title {
+  color: #60a5fa;
+}
+
+.projects-dropdown-toggle:hover .dropdown-arrow,
+.projects-dropdown-toggle.expanded .dropdown-arrow {
+  stroke: #dbeafe;
+}
+
+/* IT/Cyber Security */
+#itsecurity-toggle:hover .projects-title,
+#itsecurity-toggle.expanded .projects-title {
+  color: #ef4444;
+}
+
+#itsecurity-toggle:hover .dropdown-arrow,
+#itsecurity-toggle.expanded .dropdown-arrow {
+  stroke: #fca5a5;
+}
+
+/* Game Dev */
+#gamedev-toggle:hover .projects-title,
+#gamedev-toggle.expanded .projects-title {
+  color: #22C55E;
+}
+
+#gamedev-toggle:hover .dropdown-arrow,
+#gamedev-toggle.expanded .dropdown-arrow {
+  stroke: #86EFAC;
+}
+
+/* Education */
+#education-toggle:hover .projects-title,
+#education-toggle.expanded .projects-title {
+  color: #A855F7;
+}
+
+#education-toggle:hover .dropdown-arrow,
+#education-toggle.expanded .dropdown-arrow {
+  stroke: #D8B4FE;
+}
+
+.projects-title {
+  font-size: 2.125rem;
+  font-weight: 700;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.87);
+  transition: color 0.3s ease;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: 0.5rem;
+}
+
+.projects-dropdown-toggle.expanded .dropdown-arrow {
+  transform: rotate(90deg);
+}

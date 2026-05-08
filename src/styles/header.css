@@ -1,0 +1,165 @@
+.site-header {
+  text-align: center;
+}
+
+/* Top banner */
+.top-banner {
+  position: relative;
+  z-index: 40;
+  width: 100%;
+  background: linear-gradient(90deg, #111827, #1f2937);
+  border-bottom: 1px solid #2a2a2a;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.top-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33.33%;
+  height: 100%;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.15) 50%, transparent 50%);
+  -webkit-mask: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,1));
+  mask: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,1));
+  pointer-events: none;
+}
+
+.top-banner h1 {
+  margin: 0;
+  font-size: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed mini header (appears on scroll) */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 0;
+  background: linear-gradient(90deg, #111827, #1f2937);
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition: height 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixed-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  -webkit-mask: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,1));
+  mask: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,1));
+  pointer-events: none;
+}
+
+.fixed-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 22%;
+  width: 11%;
+  height: 100%;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.15) 50%, transparent 50%);
+  pointer-events: none;
+}
+
+.fixed-header.visible {
+  height: 3rem;
+  padding: 0.5rem 0;
+  border-bottom-color: #2a2a2a;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
+}
+
+.fixed-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fixed-header.visible h1 {
+  opacity: 1;
+}
+
+.header-nav {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.fixed-header.visible .header-nav {
+  opacity: 1;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.profile-btn-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Profile button in the fixed header nav */
+.header-nav .profile-btn {
+  padding: 0 !important;
+  overflow: hidden;
+  margin: 0;
+  border: 2px solid #ffffff !important;
+  background: transparent !important;
+  width: 54px !important;
+  height: 54px !important;
+  min-width: 54px !important;
+  min-height: 54px !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.header-nav .profile-btn:hover {
+  filter: brightness(1.2);
+}
