@@ -172,6 +172,19 @@
   border-color: rgba(229, 231, 235, 0.15);
 }
 
+/* Light mode overrides — reinforce low-contrast tags */
+[data-theme="light"] .tag[data-lang="react"] {
+  background: rgba(0, 160, 200, 0.1);
+  color: rgba(0, 110, 150, 0.9);
+  border-color: rgba(0, 140, 185, 0.35);
+}
+[data-theme="light"] .tag[data-lang="expogo"],
+[data-theme="light"] .tag[data-lang="expo"] {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(40, 40, 55, 0.75);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
 /* Full color on hover */
 .tag[data-lang="javascript"]:hover,
 .tag[data-lang="js"]:hover      { background: #F7DF1E; color: #000; border-color: #F7DF1E; }

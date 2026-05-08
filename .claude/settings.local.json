@@ -8,7 +8,15 @@
       "mcp__plugin_playwright_playwright__browser_navigate",
       "Bash(npx playwright *)",
       "Bash(npx tsc *)",
-      "PowerShell(Start-Process -FilePath \"npm\" -ArgumentList \"run\", \"dev\", \"--\", \"--port\", \"5174\" -WorkingDirectory \"C:\\\\Users\\\\tyler\\\\PortfolioProjects\\\\PortfolioLandingPage\" -WindowStyle Hidden; Start-Sleep -Seconds 3; Write-Output \"Dev server started\")"
+      "PowerShell(Start-Process -FilePath \"npm\" -ArgumentList \"run\", \"dev\", \"--\", \"--port\", \"5174\" -WorkingDirectory \"C:\\\\Users\\\\tyler\\\\PortfolioProjects\\\\PortfolioLandingPage\" -WindowStyle Hidden; Start-Sleep -Seconds 3; Write-Output \"Dev server started\")",
+      "Skill(update-config)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:5174\" -UseBasicParsing -TimeoutSec 3; Write-Output \"UP: $\\($r.StatusCode\\)\" } catch { Write-Output \"DOWN\" })",
+      "Bash(Start-Sleep -Seconds 3)",
+      "Bash(Get-Content \"C:\\\\Users\\\\tyler\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-tyler-PortfolioProjects-PortfolioLandingPage\\\\3d5ca132-5410-48c8-b85f-77775fc9a4c1\\\\tasks\\\\bd0witee8.output\")",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_evaluate"
     ]
   }
 }

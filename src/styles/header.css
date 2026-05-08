@@ -25,7 +25,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 /* Diagonal light stripe */
@@ -255,7 +254,7 @@
 #theme-toggle-banner {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 1.5rem;
   z-index: 2;
   width: 40px;
   height: 40px;

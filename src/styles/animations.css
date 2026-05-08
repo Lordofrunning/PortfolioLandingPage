@@ -118,9 +118,9 @@
 [data-theme="light"] .role-software {
   background: linear-gradient(
     90deg,
-    rgba(15, 12, 30, 0.35) calc(50% - 3ch),
+    rgba(15, 12, 30, 0.65) calc(50% - 3ch),
     #1e40af, #3b82f6, #1e40af,
-    rgba(15, 12, 30, 0.35) calc(50% + 3ch)
+    rgba(15, 12, 30, 0.65) calc(50% + 3ch)
   ) 50% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
@@ -130,9 +130,9 @@
 [data-theme="light"] .role-ai {
   background: linear-gradient(
     90deg,
-    rgba(15, 12, 30, 0.35) calc(50% - 3ch),
+    rgba(15, 12, 30, 0.65) calc(50% - 3ch),
     #dc2626, #ef4444, #dc2626,
-    rgba(15, 12, 30, 0.35) calc(50% + 3ch)
+    rgba(15, 12, 30, 0.65) calc(50% + 3ch)
   ) 50% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
@@ -142,9 +142,9 @@
 [data-theme="light"] .role-gamedev {
   background: linear-gradient(
     90deg,
-    rgba(15, 12, 30, 0.35) calc(50% - 3ch),
+    rgba(15, 12, 30, 0.65) calc(50% - 3ch),
     #16a34a, #22c55e, #16a34a,
-    rgba(15, 12, 30, 0.35) calc(50% + 3ch)
+    rgba(15, 12, 30, 0.65) calc(50% + 3ch)
   ) 50% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
