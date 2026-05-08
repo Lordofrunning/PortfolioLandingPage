@@ -6,8 +6,8 @@
 }
 
 .education-card {
-  background: rgba(26, 26, 26, 0.8);
-  border: 1px solid #4a4a4a;
+  background: rgba(10, 12, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 12px;
   padding: 1rem;
   display: grid;
@@ -19,16 +19,16 @@
 
 .education-card:hover {
   transform: translateY(-2px);
-  border-color: #888;
-  box-shadow: 0 0 20px rgb(136 136 136 / 0.25), 0 8px 24px rgb(0 0 0 / 0.18);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .education-media {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: #0f0f0f;
+  background: #07080f;
   border-radius: 10px;
-  border: 1px solid #3a3a3a;
+  border: 1px solid rgba(255, 255, 255, 0.07);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -49,20 +49,20 @@
 
 .education-meta {
   margin: 0.25rem 0 0.65rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 600;
 }
 
 .education-body p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.6;
 }
 
 .education-points {
   margin: 0.75rem 0 0;
   padding-left: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .education-points li + li {
@@ -84,8 +84,8 @@
 }
 
 .itsecurity-column {
-  background: rgba(26, 26, 26, 0.8);
-  border: 1px solid #4a4a4a;
+  background: rgba(10, 12, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 12px;
   padding: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -93,8 +93,8 @@
 
 .itsecurity-column:hover {
   transform: translateY(-2px);
-  border-color: #888;
-  box-shadow: 0 0 20px rgb(136 136 136 / 0.25), 0 8px 24px rgb(0 0 0 / 0.18);
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 0 24px rgba(239, 68, 68, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .itsecurity-column h3 {
@@ -105,7 +105,7 @@
 
 .itsecurity-column p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.6;
 }
 
@@ -132,10 +132,10 @@
   flex-shrink: 0;
 }
 
-/* Donut chart */
-@property --p {
+/* Donut chart — animated fill on scroll-into-view */
+@property --ng {
   syntax: '<number>';
-  inherits: true;
+  inherits: false;
   initial-value: 0;
 }
 
@@ -158,6 +158,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   mask: radial-gradient(circle, #0000 var(--_inner), #000 var(--_outer));
+  transition: --ng 1.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #chart-aplus .donut-chart-pie {
@@ -215,8 +216,9 @@
 }
 
 .course-dropdown-toggle:focus-visible {
-  outline: 3px solid #ff4444;
+  outline: 2px solid rgba(var(--accent), 0.75);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .course-dropdown-toggle:hover .course-title,
@@ -243,13 +245,13 @@
 
 .course-divider {
   border: none;
-  border-top: 2px solid #ff4444;
+  border-top: 2px solid rgba(239, 68, 68, 0.5);
   margin: 0.75rem 0 1rem;
 }
 
 .course-description {
   margin: 0 0 2.5rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.6;
   font-size: 0.9rem;
 }

@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0a0b10;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,15 +13,38 @@
   -moz-osx-font-smoothing: grayscale;
 
   --scrollbar-color: transparent;
+
+  /* Spacing scale */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  /* Radii */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-full: 9999px;
+
+  /* Easing */
+  --ease-out:    cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Brand accent */
+  --accent: 99 102 241; /* indigo-500 as r g b for rgba() usage */
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #818cf8;
   text-decoration: inherit;
+  transition: color 0.2s ease;
 }
 a:hover {
-  color: #535bf2;
+  color: #a5b4fc;
 }
 
 body {
@@ -29,6 +52,15 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+
+  /* Atmospheric layered background */
+  background-color: #0a0b10;
+  background-image:
+    radial-gradient(ellipse 90% 45% at 50% -5%, rgba(79, 70, 229, 0.18) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, 256px 256px;
+  background-attachment: fixed;
 }
 
 html {
@@ -39,7 +71,7 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
@@ -48,12 +80,13 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-color);
-  border-radius: 6px;
-  transition: background 0.3s ease;
+  border-radius: 7px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 
 h1 {
@@ -63,36 +96,41 @@ h1 {
 
 #app {
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(255, 255, 255, 0.05);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-color: rgba(var(--accent), 0.5);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Global focus-visible */
+:focus-visible {
+  outline: 2px solid rgba(var(--accent), 0.75);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus { outline: none; }
+button:focus-visible {
+  outline: 2px solid rgba(var(--accent), 0.75);
+  outline-offset: 3px;
+}
+
+a:focus { outline: none; }
+a:focus-visible {
+  outline: 2px solid rgba(var(--accent), 0.75);
+  outline-offset: 3px;
+  border-radius: 2px;
 }

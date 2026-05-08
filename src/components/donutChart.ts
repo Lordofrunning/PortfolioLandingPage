@@ -3,7 +3,12 @@ export interface DonutChartProps {
   size?: number
 }
 
-export function createDonutChart(props: DonutChartProps): HTMLElement {
+export interface DonutChart {
+  element: HTMLElement
+  animate: () => void
+}
+
+export function createDonutChart(props: DonutChartProps): DonutChart {
   const { percentage, size = 100 } = props
 
   const container = document.createElement('div')
@@ -13,8 +18,8 @@ export function createDonutChart(props: DonutChartProps): HTMLElement {
 
   const pie = document.createElement('div')
   pie.className = 'donut-chart-pie'
-  const angleInDegrees = (percentage / 100) * 360
-  pie.style.setProperty('--ng', `${angleInDegrees}`)
+  const targetAngle = (percentage / 100) * 360
+  pie.style.setProperty('--ng', '0')
   pie.style.setProperty('--size', `${size}px`)
 
   const label = document.createElement('span')
@@ -24,5 +29,24 @@ export function createDonutChart(props: DonutChartProps): HTMLElement {
   container.appendChild(pie)
   container.appendChild(label)
 
-  return container
+  function animate() {
+    pie.style.setProperty('--ng', '0')
+    // Two rAF calls ensure the reset paints before the target is set
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      pie.style.setProperty('--ng', `${targetAngle}`)
+    }))
+  }
+
+  // Animate on first scroll-into-view
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        animate()
+        observer.disconnect()
+      }
+    }
+  }, { threshold: 0.4 })
+  observer.observe(container)
+
+  return { element: container, animate }
 }

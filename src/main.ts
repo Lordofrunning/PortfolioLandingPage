@@ -9,6 +9,7 @@ import { initProfileModal } from './modules/profileModal'
 import { initLangModal } from './modules/langModal'
 import { initScrollbar } from './modules/scrollbar'
 import { initCharts } from './modules/charts'
+import { initCursorEffect } from './modules/cursorEffect'
 
 const app = document.querySelector<HTMLDivElement>('#app')
 if (!app) throw new Error('Missing #app element')
@@ -52,6 +53,7 @@ projectsContainer.innerHTML = projects.map((p) => `
   </article>
 `).join('')
 
+initCursorEffect()
 initHeader()
 initDropdowns()
 initCarousels()

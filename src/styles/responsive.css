@@ -1,17 +1,8 @@
 /* === Responsive breakpoints (consolidated) === */
 
-/* Light mode color scheme */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover { color: #747bff; }
-  button  { background-color: #f9f9f9; }
-}
-
-/* Tablet (≤ 768px) */
+/* ── Tablet (≤ 768px) ─────────────────────────────────────────── */
 @media (max-width: 768px) {
+  /* Layout */
   .site-header,
   .projects {
     padding: 1rem;
@@ -21,6 +12,7 @@
     grid-template-columns: 1fr;
   }
 
+  /* Top banner */
   .top-banner {
     padding: 2rem 1rem;
   }
@@ -29,6 +21,7 @@
     font-size: 2rem;
   }
 
+  /* Fixed header */
   .fixed-header.visible {
     height: 2.5rem;
     padding: 0.5rem 0;
@@ -50,6 +43,12 @@
     height: 28px;
   }
 
+  /* Role titles — tighten gap before they wrap */
+  .roles-container {
+    gap: 2.5rem;
+  }
+
+  /* Dropdowns */
   .projects-dropdown-container {
     padding: 0 1rem;
   }
@@ -63,6 +62,7 @@
     height: 28px;
   }
 
+  /* Education */
   .education-card {
     grid-template-columns: 1fr;
     align-items: start;
@@ -72,6 +72,7 @@
     max-width: 320px;
   }
 
+  /* IT Security — 2-column at tablet */
   .itsecurity-columns {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -86,48 +87,50 @@
     min-width: 0;
   }
 
+  /* Info cards */
   .info-cards {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     padding: 0 1rem 1rem;
   }
 
-  /* Language modal — scaled down at tablet */
+  /* Language modal — reduce sizes, keep 3-col */
   .lang-modal-content {
     gap: 0.75rem;
     padding: 1.5rem;
   }
 
   .lang-icon-display img {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     padding: 12px;
   }
 
   .lang-modal-main {
-    max-width: 220px;
-    padding: 0 1.25rem;
+    max-width: 200px;
+    padding: 0 1rem;
   }
 
   .lang-modal-main h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .lang-modal-description {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
   }
 
   .experience-block {
-    height: 24px;
-    width: 48px;
+    height: 22px;
+    width: 44px;
   }
 
   .lang-experience-years {
-    font-size: 0.85rem;
-    min-width: 50px;
+    font-size: 0.82rem;
+    min-width: 48px;
   }
 
   .lang-modal-bars {
-    padding-right: 1rem;
+    padding-right: 0.75rem;
+    margin-left: 0.5rem;
   }
 
   /* Lightbox */
@@ -141,11 +144,72 @@
   }
 }
 
-/* Mobile (≤ 480px) */
+/* ── Narrow tablet / large phone landscape (≤ 560px) ─────────── */
+@media (max-width: 560px) {
+  /* Language modal — switch to 2-column: icon left, description+bars right */
+  .lang-modal-content {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.5rem 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .lang-icon-display {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    margin-right: 0;
+    align-self: center;
+  }
+
+  .lang-icon-display img {
+    width: 110px;
+    height: 110px;
+    padding: 10px;
+  }
+
+  .lang-modal-main {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: none;
+    padding: 0 0.75rem;
+    border-left: 1px solid #444;
+    border-right: none;
+  }
+
+  .lang-modal-main h2 {
+    font-size: 1rem;
+  }
+
+  .lang-modal-bars {
+    grid-column: 2;
+    grid-row: 2;
+    margin-left: 0;
+    padding-left: 0.75rem;
+    padding-right: 0;
+    border-top: none;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .lang-experience-blocks-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .experience-block {
+    height: 18px;
+    width: 36px;
+  }
+}
+
+/* ── Mobile (≤ 480px) ─────────────────────────────────────────── */
 @media (max-width: 480px) {
   /* Language modal — single column stack */
   .lang-modal-content {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     gap: 0.5rem;
     padding: 1rem;
     max-width: 95%;
@@ -153,17 +217,19 @@
 
   .lang-icon-display {
     grid-column: 1;
+    grid-row: auto;
     margin-right: 0;
   }
 
   .lang-icon-display img {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     padding: 8px;
   }
 
   .lang-modal-main {
     grid-column: 1;
+    grid-row: auto;
     max-width: none;
     padding: 0;
     border-left: none;
@@ -178,10 +244,19 @@
 
   .lang-modal-bars {
     grid-column: 1;
+    grid-row: auto;
     margin-left: 0;
     padding-right: 0;
+    padding-left: 0;
     padding-top: 0.75rem;
     border-top: 1px solid #444;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .lang-experience-blocks-container {
+    flex-direction: column;
+    align-items: center;
   }
 
   .lang-modal-description {
@@ -226,7 +301,7 @@
   }
 
   .roles-container {
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 0 1rem;
     margin: 2rem auto 3rem;
   }
@@ -286,26 +361,27 @@
     font-size: 1.1rem;
   }
 
-  /* Donut charts */
+  /* Donut charts — constrain so they don't overflow cert-row */
   .donut-chart-container {
-    max-width: 80px;
+    max-width: 72px;
     flex-shrink: 0;
     overflow: hidden;
   }
 
   .donut-chart-label {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .cert-item {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .cert-row {
-    gap: 1rem;
+    gap: 0.75rem;
     margin: 1rem 0;
     overflow: hidden;
     min-width: 0;
+    flex-wrap: nowrap;
   }
 
   /* Info cards */
@@ -314,39 +390,52 @@
     gap: 1rem;
   }
 
+  /* Profile card avatar — pull out of absolute flow */
   .profile-card .info-card-body {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem 1.5rem;
+  }
+
+  .avatar-container {
+    position: static;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .avatar-github-link {
+    position: static;
+    width: 44px;
+    height: 44px;
+    top: auto;
+    right: auto;
+  }
+
+  .avatar-github-link svg {
+    width: 28px;
+    height: 28px;
   }
 
   .profile-card .info-card-content {
     padding-right: 0;
   }
 
-  .avatar-container {
-    position: absolute;
-    top: 1.5rem;
-    right: 1rem;
-  }
-
-  .avatar-github-link {
-    top: -10px;
-    right: 70px;
-  }
-
   /* Skill icons */
   .skill-icons {
-    gap: 1rem;
-    justify-content: space-around;
+    gap: 0.75rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     padding-right: 0;
   }
 
   .skill-icons img {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
   }
 
   .skill-item span {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   /* Project cards */

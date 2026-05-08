@@ -14,11 +14,11 @@
 }
 
 .project-card {
-  background: rgba(26, 26, 26, 0.8);
-  border: 1px solid #4a4a4a;
+  background: rgba(10, 12, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   display: flex;
   flex-direction: column;
@@ -27,15 +27,17 @@
 }
 
 .project-card:hover {
-  transform: translateY(-2px);
-  border-color: #888;
-  box-shadow: 0 0 20px rgb(136 136 136 / 0.3), 0 8px 24px rgb(0 0 0 / 0.2);
+  transform: translateY(-3px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow:
+    0 0 24px rgba(99, 102, 241, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 /* Carousel / media area */
 .project-card .media {
   aspect-ratio: 16 / 9;
-  background: #0f0f0f;
+  background: #07080f;
   position: relative;
   cursor: pointer;
 }
@@ -87,17 +89,17 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .carousel-dots .dot.active {
-  background: #fff;
+  background: rgba(99, 102, 241, 0.9);
 }
 
 .carousel-dots .dot:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .project-card .content {
@@ -112,7 +114,7 @@
   flex: 1;
 }
 
-/* Tags */
+/* Tags — language-tinted transparent pills by default */
 .tags {
   margin: 0.5rem 0 0.75rem;
   display: flex;
@@ -122,27 +124,63 @@
 
 .tag {
   font-size: 12px;
-  background: #0e7490;
-  color: white;
-  padding: 0.15rem 0.5rem;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.15rem 0.55rem;
   border-radius: 999px;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   cursor: default;
 }
 
 .tag:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
+/* Language-specific tints (default state) */
+.tag[data-lang="javascript"],
+.tag[data-lang="js"] {
+  background: rgba(247, 223, 30, 0.1);
+  color: rgba(247, 223, 30, 0.8);
+  border-color: rgba(247, 223, 30, 0.2);
+}
+.tag[data-lang="css"] {
+  background: rgba(102, 51, 153, 0.12);
+  color: rgba(167, 110, 224, 0.85);
+  border-color: rgba(102, 51, 153, 0.25);
+}
+.tag[data-lang="html"] {
+  background: rgba(227, 79, 38, 0.1);
+  color: rgba(239, 120, 80, 0.85);
+  border-color: rgba(227, 79, 38, 0.22);
+}
+.tag[data-lang="react"] {
+  background: rgba(97, 218, 251, 0.08);
+  color: rgba(97, 218, 251, 0.8);
+  border-color: rgba(97, 218, 251, 0.18);
+}
+.tag[data-lang="python"] {
+  background: rgba(55, 118, 171, 0.12);
+  color: rgba(97, 160, 210, 0.85);
+  border-color: rgba(55, 118, 171, 0.22);
+}
+.tag[data-lang="expogo"],
+.tag[data-lang="expogo"],
+.tag[data-lang="expo"] {
+  background: rgba(229, 231, 235, 0.08);
+  color: rgba(229, 231, 235, 0.75);
+  border-color: rgba(229, 231, 235, 0.15);
+}
+
+/* Full color on hover */
 .tag[data-lang="javascript"]:hover,
-.tag[data-lang="js"]:hover      { background: #F7DF1E; color: #000; }
-.tag[data-lang="css"]:hover      { background: #663399; color: #fff; }
-.tag[data-lang="html"]:hover     { background: #E34F26; color: #fff; }
-.tag[data-lang="react"]:hover    { background: #61DAFB; color: #000; }
-.tag[data-lang="python"]:hover   { background: #3776AB; color: #fff; }
+.tag[data-lang="js"]:hover      { background: #F7DF1E; color: #000; border-color: #F7DF1E; }
+.tag[data-lang="css"]:hover      { background: #663399; color: #fff; border-color: #663399; }
+.tag[data-lang="html"]:hover     { background: #E34F26; color: #fff; border-color: #E34F26; }
+.tag[data-lang="react"]:hover    { background: #61DAFB; color: #000; border-color: #61DAFB; }
+.tag[data-lang="python"]:hover   { background: #3776AB; color: #fff; border-color: #3776AB; }
 .tag[data-lang="expogo"]:hover,
-.tag[data-lang="expo go"]:hover,
-.tag[data-lang="expo"]:hover     { background: #1C2024; color: #fff; }
+.tag[data-lang="expo"]:hover     { background: #1C2024; color: #fff; border-color: rgba(255,255,255,0.2); }
 
 /* Link buttons */
 .links {
@@ -154,16 +192,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #3a3a3a;
-  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.button:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.08);
+  color: #fff;
 }
 
 .button.primary {
-  background: #3b82f6;
-  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.85);
+  border-color: rgba(59, 130, 246, 0.9);
   color: #fff;
+}
+
+.button.primary:hover {
+  background: rgba(59, 130, 246, 1);
+  border-color: #3b82f6;
 }

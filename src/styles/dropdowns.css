@@ -19,9 +19,10 @@
 .projects-dropdown-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
   position: relative;
   padding-bottom: 0;
+  border-left: 3px solid transparent;
+  transition: max-height 0.5s ease, border-color 0.4s ease;
 }
 
 .projects-dropdown-content::after {
@@ -36,10 +37,23 @@
   transition: opacity 0.5s ease;
 }
 
+/* Children fade+slide in when parent expands */
+.projects-dropdown-content > * {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
+}
+
+.projects-dropdown-content.expanded > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .projects-dropdown-content.expanded {
   max-height: 10000px;
   margin-top: 2rem;
   padding-bottom: 2rem;
+  padding-left: 1.25rem;
 }
 
 .projects-dropdown-content.expanded::after {
@@ -51,6 +65,12 @@
 #itsecurity-content.expanded::after  { background: #ef4444; }
 #gamedev-content.expanded::after     { background: #22C55E; }
 #education-content.expanded::after   { background: #A855F7; }
+
+/* Left border colors per section */
+#projects-content.expanded    { border-left-color: rgba(96, 165, 250, 0.45); }
+#itsecurity-content.expanded  { border-left-color: rgba(239, 68, 68, 0.45); }
+#gamedev-content.expanded     { border-left-color: rgba(34, 197, 94, 0.45); }
+#education-content.expanded   { border-left-color: rgba(168, 85, 247, 0.45); }
 
 /* Top line colors per section */
 .projects-dropdown-container:has(#projects-content.expanded)::after    { background: #60a5fa; }
@@ -80,8 +100,9 @@
 }
 
 .projects-dropdown-toggle:focus-visible {
-  outline: 3px solid #60a5fa;
+  outline: 2px solid rgba(var(--accent), 0.75);
   outline-offset: 4px;
+  border-radius: 4px;
 }
 
 /* Default (software) hover/expanded colors */

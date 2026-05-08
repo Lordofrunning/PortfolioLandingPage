@@ -1,29 +1,53 @@
-@keyframes shimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: 0% 0; }
-}
-
+/* Shimmer animations for role titles */
 @keyframes shimmer-blue {
-  0% { background-position: 100% 0; }
-  100% { background-position: 0% 0; }
+  0%   { background-position: 100% 0; }
+  100% { background-position: 0%   0; }
 }
 
 @keyframes shimmer-red {
-  0% { background-position: 100% 0; }
-  100% { background-position: 0% 0; }
+  0%   { background-position: 100% 0; }
+  100% { background-position: 0%   0; }
 }
 
 @keyframes shimmer-green {
-  0% { background-position: 100% 0; }
-  100% { background-position: 0% 0; }
+  0%   { background-position: 100% 0; }
+  100% { background-position: 0%   0; }
 }
 
+/* Subtle levitation for role titles */
+@keyframes roleFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Animated gradient shift for the banner */
+@keyframes bannerShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Avatar glow pulse */
+@keyframes avatarGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 0  0px rgba(99, 102, 241, 0),
+      0 0 20px rgba(99, 102, 241, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0  6px rgba(59, 130, 246, 0.12),
+      0 0 40px rgba(99, 102, 241, 0.22);
+  }
+}
+
+/* ── Role titles ────────────────────────────────────────────────── */
 .roles-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 4.5rem;
-  margin: 3rem auto 4rem;
+  margin: 3.5rem auto 4.5rem;
   max-width: 1400px;
   padding: 0 2rem;
   align-items: center;
@@ -31,95 +55,90 @@
 
 .role-title {
   font-size: 40px;
+  font-weight: 700;
   margin: 0;
-  color: white;
-  transition: text-shadow 300ms ease-in, transform 300ms ease-in;
+  letter-spacing: -0.01em;
+  transition: animation-play-state 0.1s, transform 0.2s var(--ease-spring);
   cursor: pointer;
   user-select: none;
   text-align: center;
 }
 
 .role-title:hover {
-  transform: scale(1.05);
+  animation-play-state: paused;
 }
 
-/* Software Designer — blue shimmer */
+/* Software Designer — blue shimmer + float */
 .role-software {
   background: linear-gradient(
     90deg,
     #ffffff calc(50% - 3ch),
-    #1e40af,
-    #1e3a8a,
-    #1e40af,
+    #1e40af, #3b82f6, #1e40af,
     #ffffff calc(50% + 3ch)
   ) 50% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer-blue 6s infinite ease-in-out;
-  animation-delay: 0s;
+  animation:
+    shimmer-blue 7s ease-in-out infinite,
+    roleFloat    5s ease-in-out infinite;
+  animation-delay: 0s, 0s;
 }
 
 .role-software:hover {
   text-shadow:
-    0  2ex rgba(59, 130, 246, 0.35),
-    0 -2ex rgba(59, 130, 246, 0.35),
-    0  4ex rgba(59, 130, 246, 0.15),
-    0 -4ex rgba(59, 130, 246, 0.15),
-    0  6ex rgba(59, 130, 246, 0.075),
-    0 -6ex rgba(59, 130, 246, 0.075);
+    0  2ex rgba(59, 130, 246, 0.4),
+    0 -2ex rgba(59, 130, 246, 0.4),
+    0  5ex rgba(59, 130, 246, 0.15),
+    0 -5ex rgba(59, 130, 246, 0.15);
 }
 
-/* IT / Cyber Security — red shimmer */
+/* IT / Cyber Security — red shimmer + float (offset) */
 .role-ai {
   background: linear-gradient(
     90deg,
     #ffffff calc(50% - 3ch),
-    #ef4444,
-    #dc2626,
-    #ef4444,
+    #dc2626, #ef4444, #dc2626,
     #ffffff calc(50% + 3ch)
   ) 50% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer-red 6s infinite ease-in-out;
-  animation-delay: 2s;
+  animation:
+    shimmer-red 7s ease-in-out infinite,
+    roleFloat   5s ease-in-out infinite;
+  animation-delay: 2.3s, 1.8s;
 }
 
 .role-ai:hover {
   text-shadow:
-    0  2ex rgba(239, 68, 68, 0.35),
-    0 -2ex rgba(239, 68, 68, 0.35),
-    0  4ex rgba(239, 68, 68, 0.15),
-    0 -4ex rgba(239, 68, 68, 0.15),
-    0  6ex rgba(239, 68, 68, 0.075),
-    0 -6ex rgba(239, 68, 68, 0.075);
+    0  2ex rgba(239, 68, 68, 0.4),
+    0 -2ex rgba(239, 68, 68, 0.4),
+    0  5ex rgba(239, 68, 68, 0.15),
+    0 -5ex rgba(239, 68, 68, 0.15);
 }
 
-/* Game Development — green shimmer */
+/* Game Development — green shimmer + float (offset) */
 .role-gamedev {
   background: linear-gradient(
     90deg,
     #ffffff calc(50% - 3ch),
-    #22c55e,
-    #16a34a,
-    #22c55e,
+    #16a34a, #22c55e, #16a34a,
     #ffffff calc(50% + 3ch)
   ) 50% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer-green 6s infinite ease-in-out;
-  animation-delay: 4s;
+  animation:
+    shimmer-green 7s ease-in-out infinite,
+    roleFloat     5s ease-in-out infinite;
+  animation-delay: 4.6s, 3.5s;
 }
 
 .role-gamedev:hover {
   text-shadow:
-    0  2ex rgba(34, 197, 94, 0.35),
-    0 -2ex rgba(34, 197, 94, 0.35),
-    0  4ex rgba(34, 197, 94, 0.15),
-    0 -4ex rgba(34, 197, 94, 0.15),
-    0  6ex rgba(34, 197, 94, 0.075),
-    0 -6ex rgba(34, 197, 94, 0.075);
+    0  2ex rgba(34, 197, 94, 0.4),
+    0 -2ex rgba(34, 197, 94, 0.4),
+    0  5ex rgba(34, 197, 94, 0.15),
+    0 -5ex rgba(34, 197, 94, 0.15);
 }
