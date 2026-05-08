@@ -1,5 +1,5 @@
 export function initCursorEffect(): void {
-  if (window.matchMedia('(pointer: coarse)').matches) return
+  if (!window.matchMedia('(any-pointer: fine)').matches) return
 
   const canvas = document.createElement('canvas')
   canvas.style.cssText = `
@@ -38,9 +38,9 @@ export function initCursorEffect(): void {
     lerpY += (mouseY - lerpY) * LERP
 
     const grad = ctx.createRadialGradient(lerpX, lerpY, 0, lerpX, lerpY, RADIUS)
-    grad.addColorStop(0,   'rgba(99, 102, 241, 0.065)')
-    grad.addColorStop(0.3, 'rgba(79,  70, 229, 0.038)')
-    grad.addColorStop(0.7, 'rgba(59,  51, 180, 0.015)')
+    grad.addColorStop(0,   'rgba(99, 102, 241, 0.18)')
+    grad.addColorStop(0.3, 'rgba(79,  70, 229, 0.10)')
+    grad.addColorStop(0.7, 'rgba(59,  51, 180, 0.04)')
     grad.addColorStop(1,   'rgba(0,   0,   0,  0)')
 
     ctx.fillStyle = grad
