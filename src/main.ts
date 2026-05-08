@@ -1,6 +1,7 @@
 import './style.css'
 import { projects } from './projects'
 import { template } from './template'
+import { initThemeToggle } from './modules/themeToggle'
 import { initHeader } from './modules/header'
 import { initDropdowns } from './modules/dropdowns'
 import { initCarousels } from './modules/carousel'
@@ -15,6 +16,8 @@ const app = document.querySelector<HTMLDivElement>('#app')
 if (!app) throw new Error('Missing #app element')
 
 app.innerHTML = template
+
+initThemeToggle()
 
 const projectsContainer = document.querySelector<HTMLDivElement>('#projects')!
 projectsContainer.innerHTML = projects.map((p) => `

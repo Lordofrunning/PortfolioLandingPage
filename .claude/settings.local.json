@@ -7,7 +7,8 @@
       "Bash(npm run *)",
       "mcp__plugin_playwright_playwright__browser_navigate",
       "Bash(npx playwright *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "PowerShell(Start-Process -FilePath \"npm\" -ArgumentList \"run\", \"dev\", \"--\", \"--port\", \"5174\" -WorkingDirectory \"C:\\\\Users\\\\tyler\\\\PortfolioProjects\\\\PortfolioLandingPage\" -WindowStyle Hidden; Start-Sleep -Seconds 3; Write-Output \"Dev server started\")"
     ]
   }
 }

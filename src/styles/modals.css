@@ -3,7 +3,7 @@
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--overlay-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,15 +19,16 @@
   right: 0.75rem;
   background: none;
   border: none;
-  color: white;
+  color: var(--text-low);
   font-size: 1.5rem;
   cursor: pointer;
   opacity: 0.7;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, color 0.2s;
 }
 
 .modal-close:hover {
   opacity: 1;
+  color: var(--text-high);
 }
 
 /* Profile modal */
@@ -36,8 +37,8 @@
 }
 
 .profile-modal-content {
-  background: #1a1a1a;
-  border: 1px solid #3a3a3a;
+  background: var(--bg-modal);
+  border: 1px solid var(--border-strong);
   border-radius: 12px;
   padding: 2rem;
   max-width: 400px;
@@ -52,7 +53,17 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
-  border: 3px solid #3a3a3a;
+  border: 3px solid rgba(var(--accent), 0.5);
+  box-shadow:
+    0 0 0 3px rgba(var(--accent), 0.15),
+    0 0 20px rgba(var(--accent), 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+  box-shadow:
+    0 0 0 4px rgba(var(--accent), 0.3),
+    0 0 32px rgba(var(--accent), 0.3);
 }
 
 .profile-modal-buttons {
@@ -77,29 +88,31 @@
 }
 
 .modal-btn-primary {
-  background: #3b82f6;
+  background: rgba(var(--accent), 1);
   color: white;
 }
 
 .modal-btn-primary:hover {
-  background: #2563eb;
+  background: rgba(var(--accent), 0.82);
   transform: translateY(-2px);
 }
 
 .modal-btn-close {
-  background: #ef4444;
-  color: white;
+  background: rgba(var(--accent), 0.1);
+  color: rgba(var(--accent), 1);
+  border: 1px solid rgba(var(--accent), 0.35);
 }
 
 .modal-btn-close:hover {
-  background: #dc2626;
+  background: rgba(var(--accent), 0.2);
+  border-color: rgba(var(--accent), 0.6);
   transform: translateY(-2px);
 }
 
 /* Language experience modal */
 .lang-modal-content {
-  background: #1a1a1a;
-  border: 1px solid #3a3a3a;
+  background: var(--bg-modal);
+  border: 1px solid var(--border-strong);
   border-radius: 12px;
   padding: 2rem;
   width: fit-content;
@@ -150,8 +163,8 @@
   text-align: center;
   max-width: 280px;
   padding: 0 2rem;
-  border-left: 1px solid #444;
-  border-right: 1px solid #444;
+  border-left: 1px solid var(--border-divider);
+  border-right: 1px solid var(--border-divider);
 }
 
 .lang-modal-main h2 {
@@ -194,13 +207,13 @@
   min-width: 60px;
   text-align: center;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-high);
   font-size: 0.95rem;
 }
 
 .lang-modal-description {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-mid);
   line-height: 1.6;
   font-size: 0.95rem;
 }

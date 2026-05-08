@@ -12,8 +12,8 @@
 }
 
 .info-card {
-  background: rgba(10, 12, 20, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -37,7 +37,7 @@
 
 .profile-card:hover {
   transform: none;
-  border-color: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-subtle);
   box-shadow: none;
 }
 
@@ -80,14 +80,14 @@
   height: 60px;
   border-radius: 50%;
   background: rgba(102, 51, 153, 0.15);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-mid);
   text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   border: 2px solid rgba(102, 51, 153, 0.5);
 }
 
 .avatar-github-link:hover {
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--text-high);
   transform: scale(1.08);
   background: rgba(102, 51, 153, 0.28);
   border-color: rgba(168, 85, 247, 0.7);
@@ -112,7 +112,7 @@
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(99, 102, 241, 0.5);
-  background: #0a0b10;
+  background: var(--bg-page);
   animation: avatarGlow 3s ease-in-out infinite;
 }
 
@@ -132,14 +132,14 @@
 .info-card-extra {
   margin: 0 0 0.5rem;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-low);
 }
 
 .info-card-bio {
   margin: 1rem 0 0;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-mid);
 }
 
 /* Skill Icons */
@@ -161,14 +161,14 @@
 
 .skill-item span {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .skill-icons img {
   width: 56px;
   height: 56px;
   border-radius: 0 50% 0 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-input);
   object-fit: contain;
   padding: 6px;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;

@@ -6,8 +6,8 @@
 }
 
 .education-card {
-  background: rgba(10, 12, 20, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 1rem;
   display: grid;
@@ -26,9 +26,9 @@
 .education-media {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: #07080f;
+  background: var(--bg-page-alt);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -49,20 +49,20 @@
 
 .education-meta {
   margin: 0.25rem 0 0.65rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-low);
   font-weight: 600;
 }
 
 .education-body p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-mid);
   line-height: 1.6;
 }
 
 .education-points {
   margin: 0.75rem 0 0;
   padding-left: 1.2rem;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text-mid);
 }
 
 .education-points li + li {
@@ -84,8 +84,8 @@
 }
 
 .itsecurity-column {
-  background: rgba(10, 12, 20, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -100,19 +100,19 @@
 .itsecurity-column h3 {
   margin: 0 0 1rem;
   font-size: 1.35rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--text-high);
 }
 
 .itsecurity-column p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-mid);
   line-height: 1.6;
 }
 
 .cert-item {
   margin: 1rem 0;
   font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-low);
   line-height: 1.6;
 }
 
@@ -184,7 +184,7 @@
 .donut-chart-label {
   font-size: 22px;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--text-high);
   z-index: 1;
 }
 
@@ -192,7 +192,7 @@
 .course-title {
   margin: 0;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--text-high);
   font-weight: 600;
   transition: color 0.3s ease;
   cursor: pointer;
@@ -251,7 +251,7 @@
 
 .course-description {
   margin: 0 0 2.5rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-mid);
   line-height: 1.6;
   font-size: 0.9rem;
 }

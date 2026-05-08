@@ -4,8 +4,6 @@
   font-weight: 400;
 
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0a0b10;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,18 +31,77 @@
   --ease-out:    cubic-bezier(0.0, 0, 0.2, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Brand accent */
-  --accent: 99 102 241; /* indigo-500 as r g b for rgba() usage */
+  /* Brand accent — indigo-500 as r g b for rgba() usage */
+  --accent: 99 102 241;
+
+  /* Page backgrounds */
+  --bg-page:       #0a0b10;
+  --bg-page-alt:   #07080f;
+  --bg-card:       rgba(10, 12, 20, 0.9);
+  --bg-modal:      #1a1a1a;
+  --bg-header:     rgba(10, 13, 38, 0.92);
+  --bg-header-mid: rgba(22, 14, 56, 0.92);
+  --bg-input:      rgba(255, 255, 255, 0.05);
+
+  /* Text */
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-high:    rgba(255, 255, 255, 0.95);
+  --text-mid:     rgba(255, 255, 255, 0.82);
+  --text-low:     rgba(255, 255, 255, 0.65);
+  --text-muted:   rgba(255, 255, 255, 0.6);
+
+  /* Borders */
+  --border-subtle:  rgba(255, 255, 255, 0.07);
+  --border-mid:     rgba(255, 255, 255, 0.1);
+  --border-strong:  #3a3a3a;
+  --border-divider: #444;
+
+  /* Overlays */
+  --overlay-dark:  rgba(0, 0, 0, 0.85);
+  --overlay-black: rgba(0, 0, 0, 0.9);
+
+  /* Links */
+  --link:       #818cf8;
+  --link-hover: #a5b4fc;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-page:       #f0eff8;
+  --bg-page-alt:   #e4e2f0;
+  --bg-card:       rgba(255, 255, 255, 0.95);
+  --bg-modal:      #ffffff;
+  --bg-header:     rgba(245, 244, 252, 0.95);
+  --bg-header-mid: rgba(235, 232, 252, 0.95);
+  --bg-input:      rgba(0, 0, 0, 0.04);
+
+  --text-primary: rgba(15, 12, 30, 0.87);
+  --text-high:    rgba(15, 12, 30, 0.95);
+  --text-mid:     rgba(15, 12, 30, 0.75);
+  --text-low:     rgba(15, 12, 30, 0.55);
+  --text-muted:   rgba(15, 12, 30, 0.45);
+
+  --border-subtle:  rgba(0, 0, 0, 0.07);
+  --border-mid:     rgba(0, 0, 0, 0.1);
+  --border-strong:  #d0cedc;
+  --border-divider: #c8c5d8;
+
+  --overlay-dark:  rgba(15, 10, 40, 0.6);
+  --overlay-black: rgba(15, 10, 40, 0.72);
+
+  --link:       #4f46e5;
+  --link-hover: #3730a3;
 }
 
 a {
   font-weight: 500;
-  color: #818cf8;
+  color: var(--link);
   text-decoration: inherit;
   transition: color 0.2s ease;
 }
 a:hover {
-  color: #a5b4fc;
+  color: var(--link-hover);
 }
 
 body {
@@ -52,15 +109,23 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  color: var(--text-primary);
 
   /* Atmospheric layered background */
-  background-color: #0a0b10;
+  background-color: var(--bg-page);
   background-image:
     radial-gradient(ellipse 90% 45% at 50% -5%, rgba(79, 70, 229, 0.18) 0%, transparent 70%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   background-repeat: no-repeat, repeat;
   background-size: 100% 100%, 256px 256px;
   background-attachment: fixed;
+}
+
+[data-theme="light"] body {
+  background-color: var(--bg-page);
+  background-image:
+    radial-gradient(ellipse 90% 45% at 50% -5%, rgba(99, 102, 241, 0.07) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
 }
 
 html {
@@ -89,6 +154,10 @@ html {
   background: rgba(255, 255, 255, 0.85) !important;
 }
 
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5) !important;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -107,7 +176,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--bg-input);
+  color: var(--text-primary);
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease;
 }

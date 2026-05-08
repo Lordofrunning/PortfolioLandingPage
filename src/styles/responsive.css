@@ -135,8 +135,8 @@
 
   /* Lightbox */
   .lightbox-arrow {
-    font-size: 2rem;
-    padding: 0.75rem 1rem;
+    width: 40px;
+    height: 40px;
   }
 
   .lightbox-close {
@@ -172,7 +172,7 @@
     grid-row: 1;
     max-width: none;
     padding: 0 0.75rem;
-    border-left: 1px solid #444;
+    border-left: 1px solid var(--border-divider);
     border-right: none;
   }
 
@@ -234,7 +234,7 @@
     padding: 0;
     border-left: none;
     border-right: none;
-    border-top: 1px solid #444;
+    border-top: 1px solid var(--border-divider);
     padding-top: 0.75rem;
   }
 
@@ -249,7 +249,7 @@
     padding-right: 0;
     padding-left: 0;
     padding-top: 0.75rem;
-    border-top: 1px solid #444;
+    border-top: 1px solid var(--border-divider);
     align-items: center;
     flex-direction: column;
   }
@@ -465,7 +465,7 @@
   }
 
   .lightbox-arrow {
-    padding: 1.5rem 0.75rem 2rem;
-    font-size: 2rem;
+    width: 36px;
+    height: 36px;
   }
 }
